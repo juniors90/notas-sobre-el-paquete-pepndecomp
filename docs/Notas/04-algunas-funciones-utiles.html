@@ -1,0 +1,340 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>4. Algunas Funciones útiles &mdash; documentación de Notas sobre el paquete RepnDecomp - 0.0.1</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="5. Calcular descomposiciones de representaciones" href="05-calcular-descomposiciones-de-representaciones.html" />
+    <link rel="prev" title="3. Algoritmos para representaciones unitarias" href="03-algoritmos-para-representaciones-unitarias.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Notas sobre el paquete RepnDecomp
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contenidos:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01-introduction.html">1. Inicio rápido con el paquete <code class="docutils literal notranslate"><span class="pre">RepnDecomp</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-isomorfismos-entre-representaciones.html">2. Isomorfismos entre representaciones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-algoritmos-para-representaciones-unitarias.html">3. Algoritmos para representaciones unitarias</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. Algunas Funciones útiles</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#predicadas-para-representaciones">4.1. Predicadas para representaciones</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#isfinitegrouplinearrepresentation">4.1.1. IsFiniteGroupLinearRepresentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#isfinitegrouppermutationrepresentation">4.1.2. IsFiniteGroupPermutationRepresentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#suma-eficiente-de-grupos">4.2. Suma eficiente de grupos</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#groupsumbsgs">4.2.1. GroupSumBSGS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#representacion-espacial-eficiente-de-tensores-de-matrices">4.3. Representación espacial eficiente de tensores de matrices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#istensorproductofmatricesobj-for-ismultiplicativeelementwithinverse">4.3.1. IsTensorProductOfMatricesObj (for IsMultiplicativeElementWithInverse)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#istensorproductpairrep-for-ispositionalobjectrep">4.3.2. IsTensorProductPairRep (for IsPositionalObjectRep)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#istensorproductkroneckerrep-for-ispositionalobjectrep">4.3.3. IsTensorProductKroneckerRep (for IsPositionalObjectRep)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tensorproductofmatrices">4.3.4. TensorProductOfMatrices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#characteroftensorproductofrepresentations">4.3.5. CharacterOfTensorProductOfRepresentations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#matrices-y-homomorfismos">4.4. Matrices y homomorfismos</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#composehomfunction">4.4.1. ComposeHomFunction</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#funciones-teoricas-de-representacion">4.5. Funciones teóricas de representación</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tensorproductreplists">4.5.1. TensorProductRepLists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#directsumofrepresentations">4.5.2. DirectSumOfRepresentations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#degreeofrepresentation">4.5.3. DegreeOfRepresentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#permtolinearrep">4.5.4. PermToLinearRep</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#isorthonormalset">4.5.5. IsOrthonormalSet</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="05-calcular-descomposiciones-de-representaciones.html">5. Calcular descomposiciones de representaciones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06-anillos-centralizadores-conmutadores.html">6. Anillos centralizadores (conmutadores)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Apéndice:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ejemplos-isomorfismos.html">Ejemplos de Isomorfismos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ejemplo-de-representaciones-unitarias.html">Ejemplos de Representaciones Unitarias</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ejemplo-de-descomposiciones-de-representaciones.html">Ejemplos de Descomposiciones de representaciones</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Notas sobre el paquete RepnDecomp</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><span class="section-number">4. </span>Algunas Funciones útiles</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/Notas/04-algunas-funciones-utiles.rst.txt" rel="nofollow"> Ver código fuente de la página</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="algunas-funciones-utiles">
+<h1><span class="section-number">4. </span>Algunas Funciones útiles<a class="headerlink" href="#algunas-funciones-utiles" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="predicadas-para-representaciones">
+<h2><span class="section-number">4.1. </span>Predicadas para representaciones<a class="headerlink" href="#predicadas-para-representaciones" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="isfinitegrouplinearrepresentation">
+<h3><span class="section-number">4.1.1. </span>IsFiniteGroupLinearRepresentation<a class="headerlink" href="#isfinitegrouplinearrepresentation" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>El atributo <code class="docutils literal notranslate"><span class="pre">IsFiniteGroupLinearRepresentation(</span> <span class="pre">rho</span> <span class="pre">)</span></code> devuelve <code class="docutils literal notranslate"><span class="pre">true</span></code> o <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+<p>Le dice si <code class="docutils literal notranslate"><span class="pre">rho</span></code> es una representación lineal de un grupo finito. Los algoritmos implementados en este paquete funcionan solo con estos homomorfismos.</p>
+</div>
+<div class="section" id="isfinitegrouppermutationrepresentation">
+<h3><span class="section-number">4.1.2. </span>IsFiniteGroupPermutationRepresentation<a class="headerlink" href="#isfinitegrouppermutationrepresentation" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>El atributo <code class="docutils literal notranslate"><span class="pre">IsFiniteGroupPermutationRepresentation(</span> <span class="pre">rho</span> <span class="pre">)</span></code> devuelve <code class="docutils literal notranslate"><span class="pre">true</span></code> o <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+<p>Le dice si <code class="docutils literal notranslate"><span class="pre">rho</span></code> es un homomorfismo de un grupo finito a un grupo de permutación.</p>
+</div>
+</div>
+<div class="section" id="suma-eficiente-de-grupos">
+<h2><span class="section-number">4.2. </span>Suma eficiente de grupos<a class="headerlink" href="#suma-eficiente-de-grupos" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="groupsumbsgs">
+<h3><span class="section-number">4.2.1. </span>GroupSumBSGS<a class="headerlink" href="#groupsumbsgs" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>La función <code class="docutils literal notranslate"><span class="pre">GroupSumBSGS(G,</span> <span class="pre">summand)</span></code> devuelve <span class="math notranslate nohighlight">\(\displaystyle\sum_{g \in G} \text{summand}(g)\)</span></p>
+<p>Utiliza una cadena estabilizadora básica por <span class="math notranslate nohighlight">\(G\)</span> para calcular la suma descrita anteriormente. Este truco requiere que <code class="docutils literal notranslate"><span class="pre">summand</span></code> sea una función (en el sentido de <strong>GAP</strong>) que defina un homomorfismo monoide (en el sentido matemático). El cálculo de la cadena estabilizadora asume que <span class="math notranslate nohighlight">\(G\)</span> es un grupo.</p>
+<p>Más precisamente, si tenemos la cadena estabilizadora básica:</p>
+<div class="math notranslate nohighlight">
+\[\{1\} = G_{1} \leq \ldots \leq G_{n} = G\]</div>
+<p>Atravesamos la cadena desde <span class="math notranslate nohighlight">\(G_{1}\)</span> a <span class="math notranslate nohighlight">\(G_{n}\)</span>, usando la suma anterior <span class="math notranslate nohighlight">\(G_{i-1}\)</span> para construir la suma <span class="math notranslate nohighlight">\(G_{i}\)</span>. Hacemos esto usando el hecho de que (escribiendo <span class="math notranslate nohighlight">\(f\)</span> para <code class="docutils literal notranslate"><span class="pre">summand</span></code>)</p>
+<div class="math notranslate nohighlight">
+\[\sum_{g \in G_i} f(g) = \sum_{r_j} \left(\sum_{h \in G_{i-1}} f(h)\right) f(r_j)\]</div>
+<p>donde <span class="math notranslate nohighlight">\(r_j\)</span> son representantes de la clase lateral derecha de <span class="math notranslate nohighlight">\(G_ {i-1}\)</span> en <span class="math notranslate nohighlight">\(G_{i}\)</span>.</p>
+<p>La condición de <code class="docutils literal notranslate"><span class="pre">summand</span></code> se cumple si, por ejemplo, es una representación lineal de un grupo <span class="math notranslate nohighlight">\(G\)</span>.</p>
+</div>
+</div>
+<div class="section" id="representacion-espacial-eficiente-de-tensores-de-matrices">
+<h2><span class="section-number">4.3. </span>Representación espacial eficiente de tensores de matrices<a class="headerlink" href="#representacion-espacial-eficiente-de-tensores-de-matrices" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Supongamos que tenemos representaciones de <span class="math notranslate nohighlight">\(G\)</span>, <span class="math notranslate nohighlight">\(\rho\)</span> y <span class="math notranslate nohighlight">\(\tau\)</span>, con grados <span class="math notranslate nohighlight">\(n\)</span> y <span class="math notranslate nohighlight">\(m\)</span>. Si quisiéramos construir la representación del producto tensorial de <span class="math notranslate nohighlight">\(G\)</span>, <span class="math notranslate nohighlight">\(\rho \otimes \tau\)</span>, la forma habitual de hacerlo sería tomar el <em>producto de Kronecker</em> de las matrices. Esto significa que ahora tenemos que almacenar matrices <span class="math notranslate nohighlight">\(nm \times nm\)</span> muy grandes para cada generador de <span class="math notranslate nohighlight">\(G\)</span>.</p>
+<p>Esto se puede evitar almacenando el tensor de matrices como pares, esencialmente almacenando <span class="math notranslate nohighlight">\(A \otimes B\)</span> como un par <span class="math notranslate nohighlight">\((A, B)\)</span> e implementando operaciones de grupo en encima de éstos, junto con algunas funciones teóricas de representación.</p>
+<p>Solo es posible garantizar una representación económica para tensores puros, es decir, matrices de la forma <span class="math notranslate nohighlight">\(A \otimes B\)</span>. Estas están cerradas bajo operaciones de grupo, por lo que es natural definir una estructura de grupo.</p>
+<div class="section" id="istensorproductofmatricesobj-for-ismultiplicativeelementwithinverse">
+<h3><span class="section-number">4.3.1. </span>IsTensorProductOfMatricesObj (for IsMultiplicativeElementWithInverse)<a class="headerlink" href="#istensorproductofmatricesobj-for-ismultiplicativeelementwithinverse" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>El filtro <code class="docutils literal notranslate"><span class="pre">IsTensorProductOfMatricesObj(</span> <span class="pre">arg</span> <span class="pre">)</span></code> devuelve <code class="docutils literal notranslate"><span class="pre">true</span></code> o <code class="docutils literal notranslate"><span class="pre">false</span></code>. La posición i en esta representación almacena la matriz <span class="math notranslate nohighlight">\(A_{i}\)</span> en el producto tensorial <span class="math notranslate nohighlight">\(A_{1} \otimes A_{2}\)</span>.</p>
+</div>
+<div class="section" id="istensorproductpairrep-for-ispositionalobjectrep">
+<h3><span class="section-number">4.3.2. </span>IsTensorProductPairRep (for IsPositionalObjectRep)<a class="headerlink" href="#istensorproductpairrep-for-ispositionalobjectrep" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>El filtro <code class="docutils literal notranslate"><span class="pre">IsTensorProductPairRep(</span> <span class="pre">arg</span> <span class="pre">)</span></code> devuelve <code class="docutils literal notranslate"><span class="pre">true</span></code> o <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+<p>La posición <span class="math notranslate nohighlight">\(1\)</span> almacena el <em>producto de Kronecker</em> completo de las matrices, esto es muy ineficiente en cuanto al espacio y se supone que debe usarse como último recurso.</p>
+</div>
+<div class="section" id="istensorproductkroneckerrep-for-ispositionalobjectrep">
+<h3><span class="section-number">4.3.3. </span>IsTensorProductKroneckerRep (for IsPositionalObjectRep)<a class="headerlink" href="#istensorproductkroneckerrep-for-ispositionalobjectrep" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>El filtro <code class="docutils literal notranslate"><span class="pre">IsTensorProductKroneckerRep(</span> <span class="pre">arg</span> <span class="pre">)</span></code> devuelve <code class="docutils literal notranslate"><span class="pre">true</span></code> o <code class="docutils literal notranslate"><span class="pre">false</span></code>. Constructor más conveniente para un producto tensor (maneja automáticamente la familia).</p>
+</div>
+<div class="section" id="tensorproductofmatrices">
+<h3><span class="section-number">4.3.4. </span>TensorProductOfMatrices<a class="headerlink" href="#tensorproductofmatrices" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>La función <code class="docutils literal notranslate"><span class="pre">TensorProductOfMatrices(</span> <span class="pre">arg</span> <span class="pre">)</span></code>. Esto usa la multiplicatividad de los caracteres cuando se toman productos tensoriales para evitar tener que calcular el rastro de una matriz grande.</p>
+</div>
+<div class="section" id="characteroftensorproductofrepresentations">
+<h3><span class="section-number">4.3.5. </span>CharacterOfTensorProductOfRepresentations<a class="headerlink" href="#characteroftensorproductofrepresentations" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>La función <code class="docutils literal notranslate"><span class="pre">CharacterOfTensorProductOfRepresentations(</span> <span class="pre">arg</span> <span class="pre">)</span></code>.</p>
+</div>
+</div>
+<div class="section" id="matrices-y-homomorfismos">
+<h2><span class="section-number">4.4. </span>Matrices y homomorfismos<a class="headerlink" href="#matrices-y-homomorfismos" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="composehomfunction">
+<h3><span class="section-number">4.4.1. </span>ComposeHomFunction<a class="headerlink" href="#composehomfunction" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>La función <code class="docutils literal notranslate"><span class="pre">ComposeHomFunction(</span> <span class="pre">hom,</span> <span class="pre">func)</span></code> devuelve un homomorfism <span class="math notranslate nohighlight">\(g\)</span> given by <span class="math notranslate nohighlight">\(g(x) = func(hom(x))\)</span>.</p>
+<p>Esto es principalmente por conveniencia, ya que maneja todos los problemas de contabilidad GAP con respecto al rango, <code class="docutils literal notranslate"><span class="pre">ByImages</span></code> vs <code class="docutils literal notranslate"><span class="pre">ByFunction</span></code>, etc.</p>
+</div>
+</div>
+<div class="section" id="funciones-teoricas-de-representacion">
+<h2><span class="section-number">4.5. </span>Funciones teóricas de representación<a class="headerlink" href="#funciones-teoricas-de-representacion" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="tensorproductreplists">
+<h3><span class="section-number">4.5.1. </span>TensorProductRepLists<a class="headerlink" href="#tensorproductreplists" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>La función <code class="docutils literal notranslate"><span class="pre">TensorProductRepLists(</span> <span class="pre">list1,</span> <span class="pre">list2</span> <span class="pre">)</span></code> devuelve todos los productos tensoriales posibles dados por <span class="math notranslate nohighlight">\(\rho \otimes \tau\)</span> donde <span class="math notranslate nohighlight">\(\rho : G \to \mbox{GL}(V)\)</span> se toma de <code class="docutils literal notranslate"><span class="pre">list1</span></code> y <span class="math notranslate nohighlight">\(\tau : H \to \mbox{GL}(W)\)</span> se toma de <code class="docutils literal notranslate"><span class="pre">list2</span></code>. El resultado es entonces una lista de representaciones de <span class="math notranslate nohighlight">\(G \times H\)</span>.</p>
+</div>
+<div class="section" id="directsumofrepresentations">
+<h3><span class="section-number">4.5.2. </span>DirectSumOfRepresentations<a class="headerlink" href="#directsumofrepresentations" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>La función <code class="docutils literal notranslate"><span class="pre">DirectSumOfRepresentations(</span> <span class="pre">list</span> <span class="pre">)</span></code> devuelve la suma directa de la lista de representaciones <code class="docutils literal notranslate"><span class="pre">list</span></code>.`</p>
+</div>
+<div class="section" id="degreeofrepresentation">
+<h3><span class="section-number">4.5.3. </span>DegreeOfRepresentation<a class="headerlink" href="#degreeofrepresentation" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>La función <code class="docutils literal notranslate"><span class="pre">DegreeOfRepresentation(</span> <span class="pre">rho</span> <span class="pre">)</span></code> devuelve el grado de representación <code class="docutils literal notranslate"><span class="pre">rho</span></code>. Es decir, <span class="math notranslate nohighlight">\(\text{Tr}(\rho(e_G))\)</span>, donde <span class="math notranslate nohighlight">\(e_G\)</span> es la identidad del grupo <span class="math notranslate nohighlight">\(G\)</span> que <code class="docutils literal notranslate"><span class="pre">rho</span></code> tiene como dominio.</p>
+</div>
+<div class="section" id="permtolinearrep">
+<h3><span class="section-number">4.5.4. </span>PermToLinearRep<a class="headerlink" href="#permtolinearrep" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>La función <code class="docutils literal notranslate"><span class="pre">PermToLinearRep(</span> <span class="pre">rho</span> <span class="pre">)</span></code> devuelve la representación lineal <span class="math notranslate nohighlight">\(\rho\)</span> isomorfa a la representación de permutación <code class="docutils literal notranslate"><span class="pre">rho</span></code>.</p>
+</div>
+<div class="section" id="isorthonormalset">
+<h3><span class="section-number">4.5.5. </span>IsOrthonormalSet<a class="headerlink" href="#isorthonormalset" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>La función <code class="docutils literal notranslate"><span class="pre">IsOrthonormalSet(</span> <span class="pre">S,</span> <span class="pre">prod</span> <span class="pre">)</span></code> devuelve si <code class="docutils literal notranslate"><span class="pre">S</span></code> es un conjunto ortonormal con respecto al producto interno <code class="docutils literal notranslate"><span class="pre">prod</span></code>.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="05-calcular-descomposiciones-de-representaciones.html" class="btn btn-neutral float-right" title="5. Calcular descomposiciones de representaciones" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="03-algoritmos-para-representaciones-unitarias.html" class="btn btn-neutral float-left" title="3. Algoritmos para representaciones unitarias" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Derechos de autor 2021, Ferreira, Juan David.
+
+    </p>
+  </div>
+    
+    
+    
+    Construido con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

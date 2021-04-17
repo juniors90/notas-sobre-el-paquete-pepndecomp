@@ -1,0 +1,277 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Ejemplos de Representaciones Unitarias &mdash; documentación de Notas sobre el paquete RepnDecomp - 0.0.1</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="Ejemplos de Descomposiciones de representaciones" href="ejemplo-de-descomposiciones-de-representaciones.html" />
+    <link rel="prev" title="Ejemplos de Isomorfismos" href="ejemplos-isomorfismos.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Notas sobre el paquete RepnDecomp
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contenidos:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="01-introduction.html">1. Inicio rápido con el paquete <code class="docutils literal notranslate"><span class="pre">RepnDecomp</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-isomorfismos-entre-representaciones.html">2. Isomorfismos entre representaciones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-algoritmos-para-representaciones-unitarias.html">3. Algoritmos para representaciones unitarias</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-algunas-funciones-utiles.html">4. Algunas Funciones útiles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05-calcular-descomposiciones-de-representaciones.html">5. Calcular descomposiciones de representaciones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06-anillos-centralizadores-conmutadores.html">6. Anillos centralizadores (conmutadores)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Apéndice:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ejemplos-isomorfismos.html">Ejemplos de Isomorfismos</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Ejemplos de Representaciones Unitarias</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ejemplo-de-descomposiciones-de-representaciones.html">Ejemplos de Descomposiciones de representaciones</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Notas sobre el paquete RepnDecomp</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Ejemplos de Representaciones Unitarias</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/Notas/ejemplo-de-representaciones-unitarias.rst.txt" rel="nofollow"> Ver código fuente de la página</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ejemplos-de-representaciones-unitarias">
+<h1>Ejemplos de Representaciones Unitarias<a class="headerlink" href="#ejemplos-de-representaciones-unitarias" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span>┌───────┐   <span class="nv">GAP</span> <span class="nv">4</span><span class="o">.</span><span class="nv">10</span><span class="o">.</span><span class="nv">2</span> <span class="nv">of</span> <span class="nv">19</span><span class="o">-</span><span class="nv">Jun</span><span class="o">-</span><span class="nv">2019</span>
+│  <span class="nv">GAP</span>  │   <span class="nv">https</span>:<span class="o">//</span><span class="nv">www</span><span class="o">.</span><span class="nv">gap</span><span class="o">-</span><span class="nv">system</span><span class="o">.</span><span class="nv">org</span>
+└───────┘   <span class="nv">Architecture</span>: <span class="nv">i686</span><span class="o">-</span><span class="nv">pc</span><span class="o">-</span><span class="nv">cygwin</span><span class="o">-</span><span class="nv">default32</span><span class="o">-</span><span class="nv">kv3</span>
+<span class="nv">Configuration</span>:  <span class="nv">gmp</span> <span class="nv">6</span><span class="o">.</span><span class="nv">1</span><span class="o">.</span><span class="nv">2</span><span class="o">,</span> <span class="nv">readline</span>
+<span class="nv">Loading</span> <span class="nv">the</span> <span class="nv">library</span> <span class="ow">and</span> <span class="nv">packages</span> <span class="o">...</span>
+<span class="nv">Packages</span>: <span class="nv">AClib</span> <span class="nv">1</span><span class="o">.</span><span class="nv">3</span><span class="o">.</span><span class="nv">1</span><span class="o">,</span> <span class="nv">Alnuth</span> <span class="nv">3</span><span class="o">.</span><span class="nv">1</span><span class="o">.</span><span class="nv">1</span><span class="o">,</span> <span class="nv">AtlasRep</span> <span class="nv">2</span><span class="o">.</span><span class="nv">1</span><span class="o">.</span><span class="nv">0</span><span class="o">,</span> <span class="nv">AutoDoc</span> <span class="nv">2019</span><span class="o">.</span><span class="nv">05</span><span class="o">.</span><span class="nv">20</span><span class="o">,</span> <span class="nv">AutPGrp</span> <span class="nv">1</span><span class="o">.</span><span class="nv">10</span><span class="o">,</span> <span class="nv">Browse</span> <span class="nv">1</span><span class="o">.</span><span class="nv">8</span><span class="o">.</span><span class="nv">8</span><span class="o">,</span>
+         <span class="nv">CRISP</span> <span class="nv">1</span><span class="o">.</span><span class="nv">4</span><span class="o">.</span><span class="nv">4</span><span class="o">,</span> <span class="nv">Cryst</span> <span class="nv">4</span><span class="o">.</span><span class="nv">1</span><span class="o">.</span><span class="nv">19</span><span class="o">,</span> <span class="nv">CrystCat</span> <span class="nv">1</span><span class="o">.</span><span class="nv">1</span><span class="o">.</span><span class="nv">9</span><span class="o">,</span> <span class="nv">CTblLib</span> <span class="nv">1</span><span class="o">.</span><span class="nv">2</span><span class="o">.</span><span class="nv">2</span><span class="o">,</span> <span class="nv">FactInt</span> <span class="nv">1</span><span class="o">.</span><span class="nv">6</span><span class="o">.</span><span class="nv">2</span><span class="o">,</span> <span class="nv">FGA</span> <span class="nv">1</span><span class="o">.</span><span class="nv">4</span><span class="o">.</span><span class="nv">0</span><span class="o">,</span>
+         <span class="nv">Forms</span> <span class="nv">1</span><span class="o">.</span><span class="nv">2</span><span class="o">.</span><span class="nv">5</span><span class="o">,</span> <span class="nv">GAPDoc</span> <span class="nv">1</span><span class="o">.</span><span class="nv">6</span><span class="o">.</span><span class="nv">2</span><span class="o">,</span> <span class="nv">genss</span> <span class="nv">1</span><span class="o">.</span><span class="nv">6</span><span class="o">.</span><span class="nv">5</span><span class="o">,</span> <span class="nv">IO</span> <span class="nv">4</span><span class="o">.</span><span class="nv">6</span><span class="o">.</span><span class="nv">0</span><span class="o">,</span> <span class="nv">IRREDSOL</span> <span class="nv">1</span><span class="o">.</span><span class="nv">4</span><span class="o">,</span> <span class="nv">LAGUNA</span> <span class="nv">3</span><span class="o">.</span><span class="nv">9</span><span class="o">.</span><span class="nv">3</span><span class="o">,</span> <span class="nv">orb</span> <span class="nv">4</span><span class="o">.</span><span class="nv">8</span><span class="o">.</span><span class="nv">2</span><span class="o">,</span>
+         <span class="nv">Polenta</span> <span class="nv">1</span><span class="o">.</span><span class="nv">3</span><span class="o">.</span><span class="nv">8</span><span class="o">,</span> <span class="nv">Polycyclic</span> <span class="nv">2</span><span class="o">.</span><span class="nv">14</span><span class="o">,</span> <span class="nv">PrimGrp</span> <span class="nv">3</span><span class="o">.</span><span class="nv">3</span><span class="o">.</span><span class="nv">2</span><span class="o">,</span> <span class="nv">RadiRoot</span> <span class="nv">2</span><span class="o">.</span><span class="nv">8</span><span class="o">,</span> <span class="nv">recog</span> <span class="nv">1</span><span class="o">.</span><span class="nv">3</span><span class="o">.</span><span class="nv">2</span><span class="o">,</span> <span class="nv">ResClasses</span> <span class="nv">4</span><span class="o">.</span><span class="nv">7</span><span class="o">.</span><span class="nv">2</span><span class="o">,</span>
+         <span class="nv">SmallGrp</span> <span class="nv">1</span><span class="o">.</span><span class="nv">3</span><span class="o">,</span> <span class="nv">Sophus</span> <span class="nv">1</span><span class="o">.</span><span class="nv">24</span><span class="o">,</span> <span class="nv">SpinSym</span> <span class="nv">1</span><span class="o">.</span><span class="nv">5</span><span class="o">.</span><span class="nv">1</span><span class="o">,</span> <span class="nv">TomLib</span> <span class="nv">1</span><span class="o">.</span><span class="nv">2</span><span class="o">.</span><span class="nv">8</span><span class="o">,</span> <span class="nv">TransGrp</span> <span class="nv">2</span><span class="o">.</span><span class="nv">0</span><span class="o">.</span><span class="nv">4</span><span class="o">,</span> <span class="nv">utils</span> <span class="nv">0</span><span class="o">.</span><span class="nv">63</span>
+<span class="nv">Try</span> &#39;??<span class="nv">help</span>&#39; <span class="k">for</span> <span class="nv">help</span><span class="o">.</span> <span class="nv">See</span> <span class="nv">also</span> &#39;?<span class="nv">copyright</span>&#39;<span class="o">,</span> &#39;?<span class="nv">cite</span>&#39; <span class="ow">and</span> &#39;?<span class="nv">authors</span>&#39;
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">LoadPackage</span><span class="p">(</span> <span class="s">&quot;RepnDecomp&quot;</span> <span class="p">)</span><span class="o">;</span>
+───────────────────────────────────────────────────────────────────────────────────────────────────
+<span class="nv">Loading</span>  <span class="nv">GRAPE</span> <span class="nv">4</span><span class="o">.</span><span class="nv">8</span><span class="o">.</span><span class="nv">2</span> <span class="p">(</span><span class="nv">GRaph</span> <span class="nv">Algorithms</span> <span class="nv">using</span> <span class="nv">PErmutation</span> <span class="nv">groups</span><span class="p">)</span>
+<span class="nv">by</span> <span class="nv">Leonard</span> <span class="nv">H</span><span class="o">.</span> <span class="nv">Soicher</span> <span class="p">(</span><span class="nv">http</span>:<span class="o">//</span><span class="nv">www</span><span class="o">.</span><span class="nv">maths</span><span class="o">.</span><span class="nv">qmul</span><span class="o">.</span><span class="nv">ac</span><span class="o">.</span><span class="nv">uk</span><span class="o">/</span>~<span class="nv">lsoicher</span><span class="o">/</span><span class="p">)</span><span class="o">.</span>
+<span class="nv">Homepage</span>: <span class="nv">https</span>:<span class="o">//</span><span class="nv">gap</span><span class="o">-</span><span class="nv">packages</span><span class="o">.</span><span class="nv">github</span><span class="o">.</span><span class="nv">io</span><span class="o">/</span><span class="nv">grape</span>
+───────────────────────────────────────────────────────────────────────────────────────────────────
+───────────────────────────────────────────────────────────────────────────────────────────────────
+<span class="nv">Loading</span>  <span class="nv">RepnDecomp</span> <span class="nv">1</span><span class="o">.</span><span class="nv">1</span><span class="o">.</span><span class="nv">0</span> <span class="p">(</span><span class="nv">Decompose</span> <span class="nv">representations</span> <span class="nv">of</span> <span class="nv">finite</span> <span class="nv">groups</span> <span class="nv">into</span> <span class="nv">irreducibles</span><span class="p">)</span>
+<span class="nv">by</span> <span class="nv">Kaashif</span> <span class="nv">Hymabaccus</span> <span class="p">(</span><span class="nv">https</span>:<span class="o">//</span><span class="nv">kaashif</span><span class="o">.</span><span class="nv">co</span><span class="o">.</span><span class="nv">uk</span><span class="p">)</span><span class="o">.</span>
+<span class="nv">Homepage</span>: <span class="nv">https</span>:<span class="o">//</span><span class="nv">gap</span><span class="o">-</span><span class="nv">packages</span><span class="o">.</span><span class="nv">github</span><span class="o">.</span><span class="nv">io</span><span class="o">/</span><span class="nv">RepnDecomp</span>
+───────────────────────────────────────────────────────────────────────────────────────────────────
+<span class="no">true</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># Example_UnitaryRepresentation</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">G</span> <span class="o">:=</span> <span class="nv">SymmetricGroup</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">irreps</span> <span class="o">:=</span> <span class="nv">IrreducibleRepresentations</span><span class="p">(</span><span class="nv">G</span><span class="p">)</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># Sucede que nos dan irreps unitarios, entonces rho también</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># es unitario (sus bloques son unitarios)</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">rho</span> <span class="o">:=</span> <span class="nv">DirectSumOfRepresentations</span><span class="p">([</span><span class="nv">irreps</span><span class="p">[</span><span class="nv">1</span><span class="p">]</span><span class="o">,</span> <span class="nv">irreps</span><span class="p">[</span><span class="nv">2</span><span class="p">]])</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">IsUnitaryRepresentation</span><span class="p">(</span><span class="nv">rho</span><span class="p">)</span><span class="o">;</span>
+<span class="no">true</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># Cambio arbitrario de base</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">A</span> <span class="o">:=</span> <span class="p">[</span> <span class="p">[</span> <span class="o">-</span><span class="nv">1</span><span class="o">,</span> <span class="nv">1</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="o">-</span><span class="nv">2</span><span class="o">,</span> <span class="o">-</span><span class="nv">1</span> <span class="p">]</span> <span class="p">]</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">tau</span> <span class="o">:=</span> <span class="nv">ComposeHomFunction</span><span class="p">(</span><span class="nv">rho</span><span class="o">,</span> <span class="nv">x</span> <span class="o">-&gt;</span> <span class="nv">A</span><span class="o">^-</span><span class="nv">1</span> <span class="o">*</span> <span class="nv">x</span> <span class="o">*</span> <span class="nv">A</span><span class="p">)</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># No unitario, pero sigue siendo isomorfo a rho</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">IsUnitaryRepresentation</span><span class="p">(</span><span class="nv">tau</span><span class="p">)</span><span class="o">;</span>
+<span class="no">false</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">AreRepsIsomorphic</span><span class="p">(</span><span class="nv">rho</span><span class="o">,</span> <span class="nv">tau</span><span class="p">)</span><span class="o">;</span>
+<span class="no">true</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># Ahora unitarizamos tau</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">tau_u</span> <span class="o">:=</span> <span class="nv">UnitaryRepresentation</span><span class="p">(</span><span class="nv">tau</span><span class="p">)</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># Obtenemos un récord con el representante unitarizado:</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">AreRepsIsomorphic</span><span class="p">(</span><span class="nv">tau</span><span class="o">,</span> <span class="nv">tau_u</span><span class="o">.</span><span class="nv">unitary_rep</span><span class="p">)</span><span class="o">;</span>
+<span class="no">true</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">AreRepsIsomorphic</span><span class="p">(</span><span class="nv">rho</span><span class="o">,</span> <span class="nv">tau_u</span><span class="o">.</span><span class="nv">unitary_rep</span><span class="p">)</span><span class="o">;</span>
+<span class="no">true</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># El cambio de base también está en el registro:</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">ForAll</span><span class="p">(</span><span class="nv">G</span><span class="o">,</span> <span class="nv">g</span> <span class="o">-&gt;</span> <span class="nv">tau_u</span><span class="o">.</span><span class="nv">basis_change</span> <span class="o">*</span> <span class="nv">Image</span><span class="p">(</span><span class="nv">tau_u</span><span class="o">.</span><span class="nv">unitary_rep</span><span class="o">,</span> <span class="nv">g</span><span class="p">)</span> <span class="o">=</span> <span class="nv">Image</span><span class="p">(</span><span class="nv">tau</span><span class="o">,</span> <span class="nv">g</span><span class="p">)</span> <span class="o">*</span> <span class="nv">tau_u</span><span class="o">.</span><span class="nv">basis_change</span><span class="p">)</span><span class="o">;</span>
+<span class="no">true</span>
+<span class="nv">gap</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Truco</p>
+<p>Se puede descargar el códico fuente: <a class="reference download internal" download="" href="../_downloads/4e923bef31dfeda0ca99f8344ec5cb10/unitary.g"><code class="xref download docutils literal notranslate"><span class="pre">unitary.g</span></code></a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="ejemplo-de-descomposiciones-de-representaciones.html" class="btn btn-neutral float-right" title="Ejemplos de Descomposiciones de representaciones" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="ejemplos-isomorfismos.html" class="btn btn-neutral float-left" title="Ejemplos de Isomorfismos" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Derechos de autor 2021, Ferreira, Juan David.
+
+    </p>
+  </div>
+    
+    
+    
+    Construido con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

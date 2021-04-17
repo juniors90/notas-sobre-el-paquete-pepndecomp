@@ -1,0 +1,378 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>2. Isomorfismos entre representaciones &mdash; documentación de Notas sobre el paquete RepnDecomp - 0.0.1</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="3. Algoritmos para representaciones unitarias" href="03-algoritmos-para-representaciones-unitarias.html" />
+    <link rel="prev" title="1. Inicio rápido con el paquete RepnDecomp" href="01-introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Notas sobre el paquete RepnDecomp
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contenidos:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01-introduction.html">1. Inicio rápido con el paquete <code class="docutils literal notranslate"><span class="pre">RepnDecomp</span></code></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. Isomorfismos entre representaciones</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#buscando-isomorphismos-explicitos">2.1. Buscando isomorphismos explicitos</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#linearrepresentationisomorphism">2.1.1. LinearRepresentationIsomorphism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linearrepresentationisomorphismslow">2.1.2. LinearRepresentationIsomorphismSlow</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#probando-isomorfismos">2.2. Probando Isomorfismos</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#arerepsisomorphic">2.2.1. AreRepsIsomorphic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#islinearrepresentationisomorphism">2.2.2. IsLinearRepresentationIsomorphism</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="03-algoritmos-para-representaciones-unitarias.html">3. Algoritmos para representaciones unitarias</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-algunas-funciones-utiles.html">4. Algunas Funciones útiles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05-calcular-descomposiciones-de-representaciones.html">5. Calcular descomposiciones de representaciones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06-anillos-centralizadores-conmutadores.html">6. Anillos centralizadores (conmutadores)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Apéndice:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ejemplos-isomorfismos.html">Ejemplos de Isomorfismos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ejemplo-de-representaciones-unitarias.html">Ejemplos de Representaciones Unitarias</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ejemplo-de-descomposiciones-de-representaciones.html">Ejemplos de Descomposiciones de representaciones</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Notas sobre el paquete RepnDecomp</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><span class="section-number">2. </span>Isomorfismos entre representaciones</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/Notas/02-isomorfismos-entre-representaciones.rst.txt" rel="nofollow"> Ver código fuente de la página</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="isomorfismos-entre-representaciones">
+<h1><span class="section-number">2. </span>Isomorfismos entre representaciones<a class="headerlink" href="#isomorfismos-entre-representaciones" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="buscando-isomorphismos-explicitos">
+<h2><span class="section-number">2.1. </span>Buscando isomorphismos explicitos<a class="headerlink" href="#buscando-isomorphismos-explicitos" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="linearrepresentationisomorphism">
+<h3><span class="section-number">2.1.1. </span>LinearRepresentationIsomorphism<a class="headerlink" href="#linearrepresentationisomorphism" title="Enlazar permanentemente con este título">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">LinearRepresentationIsomorphism(</span> <span class="pre">rho,</span> <span class="pre">tau[,</span> <span class="pre">rho_cent_basis</span> <span class="pre">,</span> <span class="pre">tau_</span> <span class="pre">cent_basis]</span> <span class="pre">)</span></code> es una función que retorna una matriz <span class="math notranslate nohighlight">\(A\)</span> o <code class="docutils literal notranslate"><span class="pre">fail</span></code></p>
+<p>Sea <span class="math notranslate nohighlight">\(\rho : G \to GL(V)\)</span> y <span class="math notranslate nohighlight">\(\tau : G \to GL(W)\)</span>. Si existe un mapa lineal <span class="math notranslate nohighlight">\(A: V \to W\)</span> tal que para todo <span class="math notranslate nohighlight">\(g \in G\)</span>, <span class="math notranslate nohighlight">\(\tau(g)A = A\rho(g)\)</span>, esta función devuelve uno de esos <span class="math notranslate nohighlight">\(A\)</span>. <span class="math notranslate nohighlight">\(A\)</span> es el isomorfismo entre las representaciones. <span class="underline">Si las representaciones no son isomorfas</span>, se devuelve <code class="docutils literal notranslate"><span class="pre">fail</span></code>.</p>
+<p>Hay tres métodos que podemos usar para calcular un isomorfismo de representaciones lineales, puede seleccionar uno pasando opciones a la función.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">use_kronecker</span></code>: asume que las matrices son lo suficientemente pequeñas como para que sus productos Kronecker puedan caber en la memoria. Utiliza <code class="docutils literal notranslate"><span class="pre">GroupSumBSGS</span> <span class="pre">(4.2.1)</span></code> y <code class="docutils literal notranslate"><span class="pre">KroneckerProduct</span></code> para calcular un elemento del subespacio fijo de <span class="math notranslate nohighlight">\(\rho \otimes \tau^{\ast}\)</span>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">use_orbit_sum</span></code>: Encuentra un isomorfismo sumando las órbitas de la acción de <span class="math notranslate nohighlight">\(\rho \otimes \tau^{\ast}\)</span> en matrices. Tenga en cuenta que las órbitas pueden ser muy grandes, por lo que esto podría ser tan malo como sumar todo el grupo.</p></li>
+<li><p>El valor predeterminado, suma sobre todo el grupo para calcular la proyección en el subespacio fijo.</p></li>
+</ul>
+</div></blockquote>
+<div class="literal-block-wrapper docutils container" id="ejemplo-linearrepresentationisomorphism">
+<div class="code-block-caption"><span class="caption-text">función LinearRepresentationIsomorphism</span><a class="headerlink" href="#ejemplo-linearrepresentationisomorphism" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">LoadPackage</span><span class="p">(</span> <span class="s">&quot;RepnDecomp&quot;</span> <span class="p">)</span><span class="o">;</span>
+────────────────────────────────────────────────────────────────────────────────────────
+<span class="nv">Loading</span>  <span class="nv">GRAPE</span> <span class="nv">4</span><span class="o">.</span><span class="nv">8</span><span class="o">.</span><span class="nv">2</span> <span class="p">(</span><span class="nv">GRaph</span> <span class="nv">Algorithms</span> <span class="nv">using</span> <span class="nv">PErmutation</span> <span class="nv">groups</span><span class="p">)</span>
+<span class="nv">by</span> <span class="nv">Leonard</span> <span class="nv">H</span><span class="o">.</span> <span class="nv">Soicher</span> <span class="p">(</span><span class="nv">http</span>:<span class="o">//</span><span class="nv">www</span><span class="o">.</span><span class="nv">maths</span><span class="o">.</span><span class="nv">qmul</span><span class="o">.</span><span class="nv">ac</span><span class="o">.</span><span class="nv">uk</span><span class="o">/</span>~<span class="nv">lsoicher</span><span class="o">/</span><span class="p">)</span><span class="o">.</span>
+<span class="nv">Homepage</span>: <span class="nv">https</span>:<span class="o">//</span><span class="nv">gap</span><span class="o">-</span><span class="nv">packages</span><span class="o">.</span><span class="nv">github</span><span class="o">.</span><span class="nv">io</span><span class="o">/</span><span class="nv">grape</span>
+────────────────────────────────────────────────────────────────────────────────────────
+────────────────────────────────────────────────────────────────────────────────────────
+<span class="nv">Loading</span>  <span class="nv">RepnDecomp</span> <span class="nv">1</span><span class="o">.</span><span class="nv">1</span><span class="o">.</span><span class="nv">0</span> <span class="p">(</span><span class="nv">Decompose</span> <span class="nv">representations</span> <span class="nv">of</span> <span class="nv">finite</span> <span class="nv">groups</span> <span class="nv">into</span> <span class="nv">irreducibles</span><span class="p">)</span>
+<span class="nv">by</span> <span class="nv">Kaashif</span> <span class="nv">Hymabaccus</span> <span class="p">(</span><span class="nv">https</span>:<span class="o">//</span><span class="nv">kaashif</span><span class="o">.</span><span class="nv">co</span><span class="o">.</span><span class="nv">uk</span><span class="p">)</span><span class="o">.</span>
+<span class="nv">Homepage</span>: <span class="nv">https</span>:<span class="o">//</span><span class="nv">gap</span><span class="o">-</span><span class="nv">packages</span><span class="o">.</span><span class="nv">github</span><span class="o">.</span><span class="nv">io</span><span class="o">/</span><span class="nv">RepnDecomp</span>
+────────────────────────────────────────────────────────────────────────────────────────
+<span class="no">true</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># Ejemplo_LinearRepresentationIsomorphism</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">G</span> <span class="o">:=</span> <span class="nv">SymmetricGroup</span><span class="p">(</span><span class="nv">4</span><span class="p">)</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">irreps</span> <span class="o">:=</span> <span class="nv">IrreducibleRepresentations</span><span class="p">(</span><span class="nv">G</span><span class="p">)</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># rho y tau son isomorfos, solo tienen un orden de bloque diferente</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">rho</span> <span class="o">:=</span> <span class="nv">DirectSumOfRepresentations</span><span class="p">([</span><span class="nv">irreps</span><span class="p">[</span><span class="nv">1</span><span class="p">]</span><span class="o">,</span> <span class="nv">irreps</span><span class="p">[</span><span class="nv">3</span><span class="p">]</span><span class="o">,</span> <span class="nv">irreps</span><span class="p">[</span><span class="nv">3</span><span class="p">]])</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">tau</span> <span class="o">:=</span> <span class="nv">DirectSumOfRepresentations</span><span class="p">([</span><span class="nv">irreps</span><span class="p">[</span><span class="nv">3</span><span class="p">]</span><span class="o">,</span> <span class="nv">irreps</span><span class="p">[</span><span class="nv">1</span><span class="p">]</span><span class="o">,</span> <span class="nv">irreps</span><span class="p">[</span><span class="nv">3</span><span class="p">]])</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># tau2 es solo tau con un cambio de base, sigue siendo isomorfo</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">B</span> <span class="o">:=</span> <span class="nv">RandomInvertibleMat</span><span class="p">(</span><span class="nv">5</span><span class="p">)</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">tau2</span> <span class="o">:=</span> <span class="nv">ComposeHomFunction</span><span class="p">(</span><span class="nv">tau</span><span class="o">,</span> <span class="nv">x</span> <span class="o">-&gt;</span> <span class="nv">B</span><span class="o">^-</span><span class="nv">1</span> <span class="o">*</span> <span class="nv">x</span> <span class="o">*</span> <span class="nv">B</span><span class="p">)</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># usando la implementación predeterminada</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">M</span> <span class="o">:=</span> <span class="nv">LinearRepresentationIsomorphism</span><span class="p">(</span><span class="nv">rho</span><span class="o">,</span> <span class="nv">tau</span><span class="p">)</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">IsLinearRepresentationIsomorphism</span><span class="p">(</span><span class="nv">M</span><span class="o">,</span> <span class="nv">rho</span><span class="o">,</span> <span class="nv">tau</span><span class="p">)</span><span class="o">;</span>
+<span class="no">true</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">M</span> <span class="o">:=</span> <span class="nv">LinearRepresentationIsomorphism</span><span class="p">(</span><span class="nv">tau</span><span class="o">,</span> <span class="nv">tau2</span><span class="p">)</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">IsLinearRepresentationIsomorphism</span><span class="p">(</span><span class="nv">M</span><span class="o">,</span> <span class="nv">tau</span><span class="o">,</span> <span class="nv">tau2</span><span class="p">)</span><span class="o">;</span>
+<span class="no">true</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># usando la implementación de suma de kronecker</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">M</span> <span class="o">:=</span> <span class="nv">LinearRepresentationIsomorphism</span><span class="p">(</span><span class="nv">tau</span><span class="o">,</span> <span class="nv">tau2</span> : <span class="nv">use_kronecker</span><span class="p">)</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">IsLinearRepresentationIsomorphism</span><span class="p">(</span><span class="nv">M</span><span class="o">,</span> <span class="nv">tau</span><span class="o">,</span> <span class="nv">tau2</span><span class="p">)</span><span class="o">;</span>
+<span class="no">true</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># usando la implementación de suma de órbitas</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">M</span> <span class="o">:=</span> <span class="nv">LinearRepresentationIsomorphism</span><span class="p">(</span><span class="nv">tau</span><span class="o">,</span> <span class="nv">tau2</span> : <span class="nv">use_orbit_sum</span><span class="p">)</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">IsLinearRepresentationIsomorphism</span><span class="p">(</span><span class="nv">M</span><span class="o">,</span> <span class="nv">tau</span><span class="o">,</span> <span class="nv">tau2</span><span class="p">)</span><span class="o">;</span>
+<span class="no">true</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># dos irreps distintos no son isomorfos</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">M</span> <span class="o">:=</span> <span class="nv">LinearRepresentationIsomorphism</span><span class="p">(</span><span class="nv">irreps</span><span class="p">[</span><span class="nv">1</span><span class="p">]</span><span class="o">,</span> <span class="nv">irreps</span><span class="p">[</span><span class="nv">2</span><span class="p">])</span><span class="o">;</span>
+<span class="no">fail</span>
+<span class="nv">gap</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="linearrepresentationisomorphismslow">
+<h3><span class="section-number">2.1.2. </span>LinearRepresentationIsomorphismSlow<a class="headerlink" href="#linearrepresentationisomorphismslow" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>La función <code class="docutils literal notranslate"><span class="pre">LinearRepresentationIsomorphismSlow(</span> <span class="pre">rho,</span> <span class="pre">tau</span> <span class="pre">)</span></code> devuelve una matriz <span class="math notranslate nohighlight">\(A\)</span> o <code class="docutils literal notranslate"><span class="pre">fail</span></code></p>
+<p>Da el mismo resultado que <code class="docutils literal notranslate"><span class="pre">LinearRepresentationIsomorphism</span> <span class="pre">(2.1.1)</span></code>, pero esta función usa un método más simple que siempre implica sumar sobre <span class="math notranslate nohighlight">\(G\)</span>, sin usar <code class="docutils literal notranslate"><span class="pre">GroupSumBSGS</span> <span class="pre">(4.2.1)</span></code>. Esto puede resultar útil en algunos casos si resulta difícil calcular un buen <code class="docutils literal notranslate"><span class="pre">BSGS</span></code>. Sin embargo, para todos los casos que se han probado, es lento (como sugiere el nombre).</p>
+<div class="literal-block-wrapper docutils container" id="ejemplo-linearrepresentationisomorphismslow">
+<div class="code-block-caption"><span class="caption-text">función LinearRepresentationIsomorphismSlow</span><a class="headerlink" href="#ejemplo-linearrepresentationisomorphismslow" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">LoadPackage</span><span class="p">(</span> <span class="s">&quot;RepnDecomp&quot;</span> <span class="p">)</span><span class="o">;</span>
+<span class="o">...</span>
+<span class="o">...</span> <span class="nv">el</span> <span class="nv">resto</span> <span class="nv">de</span> <span class="nv">código</span> <span class="nv">del</span> <span class="nv">ejemplo</span> <span class="nv">anterior</span>
+<span class="o">...</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">M</span> <span class="o">:=</span> <span class="nv">LinearRepresentationIsomorphism</span><span class="p">(</span><span class="nv">irreps</span><span class="p">[</span><span class="nv">1</span><span class="p">]</span><span class="o">,</span> <span class="nv">irreps</span><span class="p">[</span><span class="nv">2</span><span class="p">])</span><span class="o">;</span>
+<span class="no">fail</span>
+<span class="hll"><span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># Ejemplo_LinearRepresentationIsomorphismSlow</span>
+</span><span class="hll"><span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># Siguiendo el ejemplo anterior</span>
+</span><span class="hll"><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">M</span> <span class="o">:=</span> <span class="nv">LinearRepresentationIsomorphismSlow</span><span class="p">(</span><span class="nv">rho</span><span class="o">,</span> <span class="nv">tau</span><span class="p">)</span><span class="o">;;</span>
+</span><span class="hll"><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">IsLinearRepresentationIsomorphism</span><span class="p">(</span><span class="nv">M</span><span class="o">,</span> <span class="nv">rho</span><span class="o">,</span> <span class="nv">tau</span><span class="p">)</span><span class="o">;</span>
+</span><span class="hll"><span class="no">true</span>
+</span><span class="nv">gap</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="probando-isomorfismos">
+<h2><span class="section-number">2.2. </span>Probando Isomorfismos<a class="headerlink" href="#probando-isomorfismos" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="arerepsisomorphic">
+<h3><span class="section-number">2.2.1. </span>AreRepsIsomorphic<a class="headerlink" href="#arerepsisomorphic" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>La función <code class="docutils literal notranslate"><span class="pre">AreRepsIsomorphic(</span> <span class="pre">rho,</span> <span class="pre">tau)</span></code> devuelve <code class="docutils literal notranslate"><span class="pre">true</span></code> si <code class="docutils literal notranslate"><span class="pre">rho</span></code> y <code class="docutils literal notranslate"><span class="pre">tau</span></code> son isomorfos como representaciones, <code class="docutils literal notranslate"><span class="pre">false</span></code> en caso contrario.</p>
+<p>Dado que las representaciones de grupos finitos sobre <span class="math notranslate nohighlight">\(\mathbb{C}\)</span> están determinadas por sus caracteres, es fácil comprobar si dos representaciones son isomorfas comprobando si tienen el mismo carácter. Intentamos utilizar personajes siempre que sea posible.</p>
+<div class="literal-block-wrapper docutils container" id="ejemplo-arerepsisomorphic">
+<div class="code-block-caption"><span class="caption-text">función AreRepsIsomorphic</span><a class="headerlink" href="#ejemplo-arerepsisomorphic" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">LoadPackage</span><span class="p">(</span> <span class="s">&quot;RepnDecomp&quot;</span> <span class="p">)</span><span class="o">;</span>
+<span class="o">...</span>
+<span class="o">...</span> <span class="nv">el</span> <span class="nv">resto</span> <span class="nv">de</span> <span class="nv">código</span> <span class="nv">de</span> <span class="nv">los</span> <span class="nv">ejemplos</span> <span class="nv">anteriores</span>
+<span class="o">...</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">IsLinearRepresentationIsomorphism</span><span class="p">(</span><span class="nv">M</span><span class="o">,</span> <span class="nv">rho</span><span class="o">,</span> <span class="nv">tau</span><span class="p">)</span><span class="o">;</span>
+<span class="no">true</span>
+<span class="hll"><span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># Ejemplo_AreRepsIsomorphic</span>
+</span><span class="hll"><span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># Siguiendo los ejemplos anteriores</span>
+</span><span class="hll"><span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># Algunas representaciones isomorfas</span>
+</span><span class="hll"><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">AreRepsIsomorphic</span><span class="p">(</span><span class="nv">rho</span><span class="o">,</span> <span class="nv">tau</span><span class="p">)</span><span class="o">;</span>
+</span><span class="hll"><span class="no">true</span>
+</span><span class="hll"><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">AreRepsIsomorphic</span><span class="p">(</span><span class="nv">rho</span><span class="o">,</span> <span class="nv">tau2</span><span class="p">)</span><span class="o">;</span>
+</span><span class="hll"><span class="no">true</span>
+</span><span class="hll"><span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># rho no es iso a irreps[1] ya que rho es irreps[1] más algunas otras cosas</span>
+</span><span class="hll"><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">AreRepsIsomorphic</span><span class="p">(</span><span class="nv">rho</span><span class="o">,</span> <span class="nv">irreps</span><span class="p">[</span><span class="nv">1</span><span class="p">])</span><span class="o">;</span>
+</span><span class="hll"><span class="no">false</span>
+</span><span class="nv">gap</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="islinearrepresentationisomorphism">
+<h3><span class="section-number">2.2.2. </span>IsLinearRepresentationIsomorphism<a class="headerlink" href="#islinearrepresentationisomorphism" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>La función <code class="docutils literal notranslate"><span class="pre">IsLinearRepresentationIsomorphism(</span> <span class="pre">A,</span> <span class="pre">rho,</span> <span class="pre">tau)</span></code> devuelve <code class="docutils literal notranslate"><span class="pre">true</span></code> si <code class="docutils literal notranslate"><span class="pre">rho</span></code> y <code class="docutils literal notranslate"><span class="pre">tau</span></code> son <span class="underline">isomorfos como representaciones con el isomorfismo dado por el mapa lineal</span> <span class="math notranslate nohighlight">\(A\)</span>.</p>
+<p>Esta función prueba si, para todo <span class="math notranslate nohighlight">\(g \in G\)</span>, <span class="math notranslate nohighlight">\(A \rho(g) = \tau(g) A\)</span>. Es decir, se devuelve verdadero si y solo sí A es el operador entrelazado que lleva <span class="math notranslate nohighlight">\(\rho\)</span> a <span class="math notranslate nohighlight">\(\tau\)</span>. Veamos,</p>
+<div class="literal-block-wrapper docutils container" id="ejemplo-islinearrepresentationisomorphism">
+<div class="code-block-caption"><span class="caption-text">función IsLinearRepresentationIsomorphism</span><a class="headerlink" href="#ejemplo-islinearrepresentationisomorphism" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">LoadPackage</span><span class="p">(</span> <span class="s">&quot;RepnDecomp&quot;</span> <span class="p">)</span><span class="o">;</span>
+<span class="o">...</span>
+<span class="o">...</span> <span class="nv">el</span> <span class="nv">resto</span> <span class="nv">de</span> <span class="nv">código</span> <span class="nv">de</span> <span class="nv">los</span> <span class="nv">ejemplos</span> <span class="nv">anteriores</span>
+<span class="o">...</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">AreRepsIsomorphic</span><span class="p">(</span><span class="nv">rho</span><span class="o">,</span> <span class="nv">irreps</span><span class="p">[</span><span class="nv">1</span><span class="p">])</span><span class="o">;</span>
+<span class="no">false</span>
+<span class="hll"><span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># Ejemplo_IsLinearRepresentationIsomorphism</span>
+</span><span class="hll"><span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># Ya hemos visto que esta función se usa mucho en ejemplos anteriores.</span>
+</span><span class="hll"><span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># Si dos representaciones son isomorfas, siempre se cumple lo siguiente:</span>
+</span><span class="hll"><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">IsLinearRepresentationIsomorphism</span><span class="p">(</span><span class="nv">LinearRepresentationIsomorphism</span><span class="p">(</span><span class="nv">rho</span><span class="o">,</span> <span class="nv">tau</span><span class="p">)</span><span class="o">,</span> <span class="nv">rho</span><span class="o">,</span> <span class="nv">tau</span><span class="p">)</span><span class="o">;</span>
+</span><span class="hll"><span class="no">true</span>
+</span><span class="hll"><span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># Nota: esta prueba es sensible a las llamados:</span>
+</span><span class="hll"><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">IsLinearRepresentationIsomorphism</span><span class="p">(</span><span class="nv">LinearRepresentationIsomorphism</span><span class="p">(</span><span class="nv">rho</span><span class="o">,</span> <span class="nv">tau</span><span class="p">)</span><span class="o">,</span> <span class="nv">tau</span><span class="o">,</span> <span class="nv">rho</span><span class="p">)</span><span class="o">;</span>
+</span><span class="hll"><span class="no">false</span>
+</span><span class="nv">gap</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<ul class="simple">
+<li><p>La secuencia de ejemplos completa está en <a class="reference internal" href="ejemplos-isomorfismos.html"><span class="doc">Ejemplos de Isomorfismos</span></a>.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="03-algoritmos-para-representaciones-unitarias.html" class="btn btn-neutral float-right" title="3. Algoritmos para representaciones unitarias" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="01-introduction.html" class="btn btn-neutral float-left" title="1. Inicio rápido con el paquete RepnDecomp" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Derechos de autor 2021, Ferreira, Juan David.
+
+    </p>
+  </div>
+    
+    
+    
+    Construido con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

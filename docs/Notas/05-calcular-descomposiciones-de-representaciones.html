@@ -1,0 +1,412 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>5. Calcular descomposiciones de representaciones &mdash; documentación de Notas sobre el paquete RepnDecomp - 0.0.1</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="6. Anillos centralizadores (conmutadores)" href="06-anillos-centralizadores-conmutadores.html" />
+    <link rel="prev" title="4. Algunas Funciones útiles" href="04-algunas-funciones-utiles.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Notas sobre el paquete RepnDecomp
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contenidos:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01-introduction.html">1. Inicio rápido con el paquete <code class="docutils literal notranslate"><span class="pre">RepnDecomp</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-isomorfismos-entre-representaciones.html">2. Isomorfismos entre representaciones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-algoritmos-para-representaciones-unitarias.html">3. Algoritmos para representaciones unitarias</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-algunas-funciones-utiles.html">4. Algunas Funciones útiles</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">5. Calcular descomposiciones de representaciones</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#block-diagonalizing">5.1. Block diagonalizing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#blockdiagonalbasisofrepresentation">5.1.1. BlockDiagonalBasisOfRepresentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#blockdiagonalrepresentation">5.1.2. BlockDiagonalRepresentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#algoritmos-debidos-a-los-autores">5.2. Algoritmos debidos a los autores</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#repn-computeusingmymethod-para-isgrouphomomorphism">5.2.1. REPN_ComputeUsingMyMethod (para IsGroupHomomorphism)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#repn-computeusingmymethodcanonical-para-isgrouphomomorphism">5.2.2. REPN_ComputeUsingMyMethodCanonical (para IsGroupHomomorphism)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#algoritmos-debidos-a-serre">5.3. Algoritmos debidos a Serre</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#canonicaldecomposition">5.3.1. CanonicalDecomposition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#irreducibledecomposition">5.3.2. IrreducibleDecomposition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#irreducibledecompositioncollected">5.3.3. IrreducibleDecompositionCollected</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#repn-computeusingserre-para-isgrouphomomorphism">5.3.4. REPN_ComputeUsingSerre (para IsGroupHomomorphism)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="06-anillos-centralizadores-conmutadores.html">6. Anillos centralizadores (conmutadores)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Apéndice:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ejemplos-isomorfismos.html">Ejemplos de Isomorfismos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ejemplo-de-representaciones-unitarias.html">Ejemplos de Representaciones Unitarias</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ejemplo-de-descomposiciones-de-representaciones.html">Ejemplos de Descomposiciones de representaciones</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Notas sobre el paquete RepnDecomp</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><span class="section-number">5. </span>Calcular descomposiciones de representaciones</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/Notas/05-calcular-descomposiciones-de-representaciones.rst.txt" rel="nofollow"> Ver código fuente de la página</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="calcular-descomposiciones-de-representaciones">
+<h1><span class="section-number">5. </span>Calcular descomposiciones de representaciones<a class="headerlink" href="#calcular-descomposiciones-de-representaciones" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="block-diagonalizing">
+<h2><span class="section-number">5.1. </span>Block diagonalizing<a class="headerlink" href="#block-diagonalizing" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Dada una representación <span class="math notranslate nohighlight">\(\rho : G \to GL(V)\)</span>, a menudo es deseable encontrar una base para <span class="math notranslate nohighlight">\(V\)</span> que el bloque diagonalice cada <span class="math notranslate nohighlight">\(\rho(g)\)</span> con los tamaños de bloque tan pequeños como sea posible. Esto acelera las operaciones de álgebra matricial, ya que ahora se pueden realizar en bloques.</p>
+<div class="section" id="blockdiagonalbasisofrepresentation">
+<h3><span class="section-number">5.1.1. </span>BlockDiagonalBasisOfRepresentation<a class="headerlink" href="#blockdiagonalbasisofrepresentation" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>La función <code class="docutils literal notranslate"><span class="pre">BlockDiagonalBasisOfRepresentation(</span> <span class="pre">rho</span> <span class="pre">)</span></code> devuelve una base de <span class="math notranslate nohighlight">\(V\)</span> que diagonaliza en bloque <span class="math notranslate nohighlight">\(\rho\)</span>.</p>
+<p>Sea <span class="math notranslate nohighlight">\(G\)</span> tal que tenga representaciones irreductibles <span class="math notranslate nohighlight">\(\rho_i\)</span>, con dimensión <span class="math notranslate nohighlight">\(d_{i}\)</span> y multiplicidad <span class="math notranslate nohighlight">\(m_{i}\)</span>. La base devuelta por esta operación da cada <span class="math notranslate nohighlight">\(\rho(g)\)</span> como una matriz diagonal de bloques que tiene <span class="math notranslate nohighlight">\(m_{i}\)</span> bloques de tamaño <span class="math notranslate nohighlight">\(d_i \times d_i\)</span> para cada <span class="math notranslate nohighlight">\(i\)</span>.</p>
+</div>
+<div class="section" id="blockdiagonalrepresentation">
+<h3><span class="section-number">5.1.2. </span>BlockDiagonalRepresentation<a class="headerlink" href="#blockdiagonalrepresentation" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>La función <code class="docutils literal notranslate"><span class="pre">BlockDiagonalRepresentation(</span> <span class="pre">rho</span> <span class="pre">)</span></code> devuelve la representación de <span class="math notranslate nohighlight">\(G\)</span> isomorfo a <span class="math notranslate nohighlight">\(\rho\)</span> donde las imágenes <span class="math notranslate nohighlight">\(\rho(g)\)</span> están diagonalizadas en bloque. Esta es solo una operación de conveniencia que usa <code class="docutils literal notranslate"><span class="pre">BlockDiagonalBasisOfRepresentation</span> <span class="pre">(5.1.1)</span></code> para calcular la matriz de cambio de base y la aplica para poner <span class="math notranslate nohighlight">\(\rho\)</span> en la forma de bloque diagonalizado.</p>
+</div>
+</div>
+<div class="section" id="algoritmos-debidos-a-los-autores">
+<h2><span class="section-number">5.2. </span>Algoritmos debidos a los autores<a class="headerlink" href="#algoritmos-debidos-a-los-autores" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="repn-computeusingmymethod-para-isgrouphomomorphism">
+<h3><span class="section-number">5.2.1. </span>REPN_ComputeUsingMyMethod (para IsGroupHomomorphism)<a class="headerlink" href="#repn-computeusingmymethod-para-isgrouphomomorphism" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>El atributo <code class="docutils literal notranslate"><span class="pre">REPN_ComputeUsingMyMethod(</span> <span class="pre">rho</span> <span class="pre">)</span></code> devuelve un <code class="docutils literal notranslate"><span class="pre">registro</span></code> o <code class="docutils literal notranslate"><span class="pre">record</span></code> en el mismo formato que <code class="docutils literal notranslate"><span class="pre">REPN_ComputeUsingSerre</span> <span class="pre">(5.3.4)</span></code>.</p>
+<p>Calcula los mismos valores que <code class="docutils literal notranslate"><span class="pre">REPN_ComputeUsingSerre</span> <span class="pre">(5.3.4)</span></code>, tomando las mismas opciones. El trabajo pesado de este método se realiza mediante <code class="docutils literal notranslate"><span class="pre">LinearRepresentationIsomorphism</span> <span class="pre">(2.1.1)</span></code>), donde hay algunas opciones adicionales que se pueden pasar para influir en los algoritmos utilizados.</p>
+</div>
+<div class="section" id="repn-computeusingmymethodcanonical-para-isgrouphomomorphism">
+<h3><span class="section-number">5.2.2. </span>REPN_ComputeUsingMyMethodCanonical (para IsGroupHomomorphism)<a class="headerlink" href="#repn-computeusingmymethodcanonical-para-isgrouphomomorphism" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>El atributo <code class="docutils literal notranslate"><span class="pre">REPN_ComputeUsingMyMethodCanonical(</span> <span class="pre">rho</span> <span class="pre">)</span></code>  Devuelve un registro en el mismo formato que <code class="docutils literal notranslate"><span class="pre">REPN_ComputeUsingMyMethod</span> <span class="pre">(5.2.1)</span></code>.</p>
+<p>Realiza el mismo cálculo que <code class="docutils literal notranslate"><span class="pre">REPN_ComputeUsingMyMethod</span> <span class="pre">(5.2.1)</span></code>, pero primero divide la representación en sumandos canónicos usando <code class="docutils literal notranslate"><span class="pre">CanonicalDecomposition</span> <span class="pre">(5.3.1)</span></code>. Esto podría reducir significativamente el tamaño de las matrices con las que necesitamos trabajar, por lo que podría ser mucho más rápido.</p>
+<p>Si se da la opción <code class="docutils literal notranslate"><span class="pre">parallel</span></code>, la descomposición de los sumandos canónicos en <code class="docutils literal notranslate"><span class="pre">irreps</span></code> se realiza en
+paralelo, que podría ser mucho más rápido.</p>
+</div>
+</div>
+<div class="section" id="algoritmos-debidos-a-serre">
+<h2><span class="section-number">5.3. </span>Algoritmos debidos a Serre<a class="headerlink" href="#algoritmos-debidos-a-serre" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<ul class="simple">
+<li><p>Todo el cálculo en esta sección se realiza en realidad en la función <code class="docutils literal notranslate"><span class="pre">REPN_ComputeUsingSerre</span></code>, las otras funciones son envoltorios a su alrededor.</p></li>
+</ul>
+</div>
+<div class="section" id="canonicaldecomposition">
+<h3><span class="section-number">5.3.1. </span>CanonicalDecomposition<a class="headerlink" href="#canonicaldecomposition" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>La función <code class="docutils literal notranslate"><span class="pre">CanonicalDecomposition(</span> <span class="pre">rho</span> <span class="pre">)</span></code> devuelve una lista de espacios vectoriales <span class="math notranslate nohighlight">\(V_{i}\)</span>, cada <span class="math notranslate nohighlight">\(G-\text{invariante}\)</span> y una suma directa de irreducibles isomorfos. Es decir, para cada <span class="math notranslate nohighlight">\(i\)</span>, <span class="math notranslate nohighlight">\(V_{i} \cong \oplus_{j} W_{i}\)</span> (como representaciones) donde <span class="math notranslate nohighlight">\(W_{i}\)</span> es un espacio vectorial <span class="math notranslate nohighlight">\(G-\text{invariante}\)</span> irreductible.</p>
+<p>Calcula la descomposición canónica de <span class="math notranslate nohighlight">\(V\)</span> en <span class="math notranslate nohighlight">\(\oplus_{i}\;V_{i}\)</span> usando las fórmulas para las proyecciones <span class="math notranslate nohighlight">\($V \to V_{i}$\)</span> debido a <em>Serre</em>. Puede pasar la opción <code class="docutils literal notranslate"><span class="pre">irreps</span></code> con una lista de <code class="docutils literal notranslate"><span class="pre">irreps</span></code> de <span class="math notranslate nohighlight">\(G\)</span>, y esto se utilizará en lugar de calcular una lista completa nosotros mismos. Si ya sabe qué <code class="docutils literal notranslate"><span class="pre">irreps</span></code> aparecerán en <span class="math notranslate nohighlight">\(\rho\)</span>, por ejemplo, esto le ahorrará tiempo.</p>
+<div class="literal-block-wrapper docutils container" id="ejemplo-canonicaldecomposition">
+<div class="code-block-caption"><span class="caption-text">función CanonicalDecomposition</span><a class="headerlink" href="#ejemplo-canonicaldecomposition" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">LoadPackage</span><span class="p">(</span> <span class="s">&quot;RepnDecomp&quot;</span> <span class="p">)</span><span class="o">;</span>
+────────────────────────────────────────────────────────────────────────────────────────
+<span class="nv">Loading</span>  <span class="nv">GRAPE</span> <span class="nv">4</span><span class="o">.</span><span class="nv">8</span><span class="o">.</span><span class="nv">2</span> <span class="p">(</span><span class="nv">GRaph</span> <span class="nv">Algorithms</span> <span class="nv">using</span> <span class="nv">PErmutation</span> <span class="nv">groups</span><span class="p">)</span>
+<span class="nv">by</span> <span class="nv">Leonard</span> <span class="nv">H</span><span class="o">.</span> <span class="nv">Soicher</span> <span class="p">(</span><span class="nv">http</span>:<span class="o">//</span><span class="nv">www</span><span class="o">.</span><span class="nv">maths</span><span class="o">.</span><span class="nv">qmul</span><span class="o">.</span><span class="nv">ac</span><span class="o">.</span><span class="nv">uk</span><span class="o">/</span>~<span class="nv">lsoicher</span><span class="o">/</span><span class="p">)</span><span class="o">.</span>
+<span class="nv">Homepage</span>: <span class="nv">https</span>:<span class="o">//</span><span class="nv">gap</span><span class="o">-</span><span class="nv">packages</span><span class="o">.</span><span class="nv">github</span><span class="o">.</span><span class="nv">io</span><span class="o">/</span><span class="nv">grape</span>
+────────────────────────────────────────────────────────────────────────────────────────
+────────────────────────────────────────────────────────────────────────────────────────
+<span class="nv">Loading</span>  <span class="nv">RepnDecomp</span> <span class="nv">1</span><span class="o">.</span><span class="nv">1</span><span class="o">.</span><span class="nv">0</span> <span class="p">(</span><span class="nv">Decompose</span> <span class="nv">representations</span> <span class="nv">of</span> <span class="nv">finite</span> <span class="nv">groups</span> <span class="nv">into</span> <span class="nv">irreducibles</span><span class="p">)</span>
+<span class="nv">by</span> <span class="nv">Kaashif</span> <span class="nv">Hymabaccus</span> <span class="p">(</span><span class="nv">https</span>:<span class="o">//</span><span class="nv">kaashif</span><span class="o">.</span><span class="nv">co</span><span class="o">.</span><span class="nv">uk</span><span class="p">)</span><span class="o">.</span>
+<span class="nv">Homepage</span>: <span class="nv">https</span>:<span class="o">//</span><span class="nv">gap</span><span class="o">-</span><span class="nv">packages</span><span class="o">.</span><span class="nv">github</span><span class="o">.</span><span class="nv">io</span><span class="o">/</span><span class="nv">RepnDecomp</span>
+────────────────────────────────────────────────────────────────────────────────────────
+<span class="no">true</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># Ejemplo_CanonicalDecomposition</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># Este es el grupo trivial</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">G</span> <span class="o">:=</span> <span class="nv">Group</span><span class="p">(())</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># The trivial group has only one representation per degree, so a</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># degree d representation decomposes into a single canonical summand</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># containing the whole space</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># El grupo trivial tiene solo una representación por grado,</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># por lo que una representación de grado d se descompone</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># en un único sumando canónico que contiene todo el espacio.</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">rho</span> <span class="o">:=</span> <span class="nv">FuncToHom</span>@<span class="nv">RepnDecomp</span><span class="p">(</span><span class="nv">G</span><span class="o">,</span> <span class="nv">g</span> <span class="o">-&gt;</span> <span class="nv">IdentityMat</span><span class="p">(</span><span class="nv">3</span><span class="p">))</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">canonical_summands_G</span> <span class="o">:=</span> <span class="nv">CanonicalDecomposition</span><span class="p">(</span><span class="nv">rho</span><span class="p">)</span><span class="o">;</span>
+<span class="p">[</span> <span class="p">(</span> <span class="nv">Cyclotomics</span><span class="o">^</span><span class="nv">3</span> <span class="p">)</span> <span class="p">]</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># Ejemplo más interesante, S_3</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">H</span> <span class="o">:=</span> <span class="nv">SymmetricGroup</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># La representación estándar: una permutación a la correspondiente</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># matriz de permutación.</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">tau</span> <span class="o">:=</span> <span class="nv">FuncToHom</span>@<span class="nv">RepnDecomp</span><span class="p">(</span><span class="nv">H</span><span class="o">,</span> <span class="nv">h</span> <span class="o">-&gt;</span> <span class="nv">PermutationMat</span><span class="p">(</span><span class="nv">h</span><span class="o">,</span> <span class="nv">3</span><span class="p">))</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># Dos sumandos canónicos correspondientes al grado 2 e irreps</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># triviales (en ese orden)</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">canonical_summands_H</span> <span class="o">:=</span> <span class="nv">CanonicalDecomposition</span><span class="p">(</span><span class="nv">tau</span><span class="p">)</span><span class="o">;</span>
+<span class="p">[</span> <span class="o">&lt;</span><span class="nv">vector</span> <span class="nv">space</span> <span class="nv">over</span> <span class="nv">Cyclotomics</span><span class="o">,</span> <span class="nv">with</span> <span class="nv">2</span> <span class="nv">generators</span><span class="o">&gt;,</span>
+  <span class="o">&lt;</span><span class="nv">vector</span> <span class="nv">space</span> <span class="nv">over</span> <span class="nv">Cyclotomics</span><span class="o">,</span> <span class="nv">with</span> <span class="nv">1</span> <span class="nv">generators</span><span class="o">&gt;</span> <span class="p">]</span>
+<span class="nv">gap</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="irreducibledecomposition">
+<h3><span class="section-number">5.3.2. </span>IrreducibleDecomposition<a class="headerlink" href="#irreducibledecomposition" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>La función <code class="docutils literal notranslate"><span class="pre">IrreducibleDecomposition(</span> <span class="pre">rho</span> <span class="pre">)</span></code> devuelve una lista de espacios vectoriales <span class="math notranslate nohighlight">\(W_{j}\)</span> tales que <span class="math notranslate nohighlight">\(V = \displaystyle\oplus_{j} W_{j}\)</span> y cada <span class="math notranslate nohighlight">\(W_{j}\)</span> es un espacio vectorial <span class="math notranslate nohighlight">\(G-\text{invariante}\)</span> irreducible.</p>
+<p>Calcula la descomposición de <span class="math notranslate nohighlight">\(V\)</span> en subpresentaciones irreducibles.</p>
+<div class="literal-block-wrapper docutils container" id="ejemplo-irreducibledecomposition">
+<div class="code-block-caption"><span class="caption-text">función IrreducibleDecomposition</span><a class="headerlink" href="#ejemplo-irreducibledecomposition" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">LoadPackage</span><span class="p">(</span> <span class="s">&quot;RepnDecomp&quot;</span> <span class="p">)</span><span class="o">;</span>
+<span class="o">...</span>
+<span class="o">...</span> <span class="nv">el</span> <span class="nv">resto</span> <span class="nv">de</span> <span class="nv">código</span> <span class="nv">del</span> <span class="nv">ejemplo</span> <span class="nv">anterior</span>
+<span class="o">...</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">canonical_summands_H</span> <span class="o">:=</span> <span class="nv">CanonicalDecomposition</span><span class="p">(</span><span class="nv">tau</span><span class="p">)</span><span class="o">;</span>
+<span class="p">[</span> <span class="o">&lt;</span><span class="nv">vector</span> <span class="nv">space</span> <span class="nv">over</span> <span class="nv">Cyclotomics</span><span class="o">,</span> <span class="nv">with</span> <span class="nv">2</span> <span class="nv">generators</span><span class="o">&gt;,</span>
+  <span class="o">&lt;</span><span class="nv">vector</span> <span class="nv">space</span> <span class="nv">over</span> <span class="nv">Cyclotomics</span><span class="o">,</span> <span class="nv">with</span> <span class="nv">1</span> <span class="nv">generators</span><span class="o">&gt;</span> <span class="p">]</span>
+<span class="hll"><span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># Ejemplo_IrreducibleDecomposition</span>
+</span><span class="hll"><span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># El grupo trivial tiene 1 irrep de grado 1, por lo que rho se descompone</span>
+</span><span class="hll"><span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># en 3 líneas.</span>
+</span><span class="hll"><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">irred_decomp_G</span> <span class="o">:=</span> <span class="nv">IrreducibleDecomposition</span><span class="p">(</span> <span class="nv">rho</span> <span class="p">)</span><span class="o">;</span>
+</span><span class="hll"><span class="p">[</span> <span class="k">rec</span><span class="p">(</span> <span class="nv">basis</span> <span class="o">:=</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span> <span class="p">]</span> <span class="p">)</span><span class="o">,</span> <span class="k">rec</span><span class="p">(</span> <span class="nv">basis</span> <span class="o">:=</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span> <span class="p">]</span> <span class="p">)</span><span class="o">,</span> <span class="k">rec</span><span class="p">(</span> <span class="nv">basis</span> <span class="o">:=</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">1</span> <span class="p">]</span> <span class="p">]</span> <span class="p">)</span> <span class="p">]</span>
+</span><span class="hll"><span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># Los espacios se devuelven en este formato, manteniendo explícitamente</span>
+</span><span class="hll"><span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># la base, ya que este bloque base diagonaliza rho en los irreps, que</span>
+</span><span class="hll"><span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># son los bloques más pequeños posibles. Esto es más obvio con H.</span>
+</span><span class="hll"><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">irred_decomp_H</span> <span class="o">:=</span> <span class="nv">IrreducibleDecomposition</span><span class="p">(</span><span class="nv">tau</span><span class="p">)</span><span class="o">;</span>
+</span><span class="hll"><span class="p">[</span> <span class="k">rec</span><span class="p">(</span> <span class="nv">basis</span> <span class="o">:=</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">1</span> <span class="p">]</span> <span class="p">]</span> <span class="p">)</span><span class="o">,</span> <span class="k">rec</span><span class="p">(</span> <span class="nv">basis</span> <span class="o">:=</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">E</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span><span class="o">,</span> <span class="nv">E</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">E</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span><span class="o">,</span> <span class="nv">E</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span> <span class="p">]</span> <span class="p">]</span> <span class="p">)</span> <span class="p">]</span>
+</span><span class="hll"><span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># Usando los vectores base dados allí, el bloque diagonaliza tau en</span>
+</span><span class="hll"><span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># los dos bloques correspondientes a los dos irreps:</span>
+</span><span class="hll"><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">nice_basis</span> <span class="o">:=</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">1</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">E</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span><span class="o">,</span> <span class="nv">E</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">E</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span><span class="o">,</span> <span class="nv">E</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span> <span class="p">]</span> <span class="p">]</span><span class="o">;;</span>
+</span><span class="hll"><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">tau_diag</span> <span class="o">:=</span> <span class="nv">ComposeHomFunction</span><span class="p">(</span><span class="nv">tau</span><span class="o">,</span> <span class="nv">X</span> <span class="o">-&gt;</span> <span class="nv">nice_basis</span><span class="o">^-</span><span class="nv">1</span> <span class="o">*</span> <span class="nv">X</span> <span class="o">*</span> <span class="nv">nice_basis</span><span class="p">)</span><span class="o">;</span>
+</span><span class="hll"><span class="p">[</span> <span class="p">(</span><span class="nv">1</span><span class="o">,</span><span class="nv">2</span><span class="o">,</span><span class="nv">3</span><span class="p">)</span><span class="o">,</span> <span class="p">(</span><span class="nv">1</span><span class="o">,</span><span class="nv">2</span><span class="p">)</span> <span class="p">]</span> <span class="o">-&gt;</span> <span class="p">[</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">E</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">E</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span> <span class="p">]</span> <span class="p">]</span><span class="o">,</span>
+</span><span class="hll">  <span class="p">[</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">E</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">E</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span> <span class="p">]</span> <span class="p">]</span>
+</span><span class="nv">gap</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="irreducibledecompositioncollected">
+<h3><span class="section-number">5.3.3. </span>IrreducibleDecompositionCollected<a class="headerlink" href="#irreducibledecompositioncollected" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>La función <code class="docutils literal notranslate"><span class="pre">IrreducibleDecompositionCollected(</span> <span class="pre">rho</span> <span class="pre">)</span></code> devuelve una lista de listas <span class="math notranslate nohighlight">\(V_{i}\)</span> de espacios vectoriales <span class="math notranslate nohighlight">\(V_{ij}\)</span> tales que <span class="math notranslate nohighlight">\(V = \oplus_{i} \oplus_{j} V_{ij}\)</span> y <span class="math notranslate nohighlight">\(V_{ik} \cong V_{il}\)</span> para todo <span class="math notranslate nohighlight">\(i\)</span>, <span class="math notranslate nohighlight">\(k\)</span> y <span class="math notranslate nohighlight">\(l\)</span> (como representaciones).</p>
+<p>Calcula la descomposición de <span class="math notranslate nohighlight">\(V\)</span> en subrepresentaciones irreducibles, agrupando las subrepresentaciones isomorfas.</p>
+</div>
+<div class="section" id="repn-computeusingserre-para-isgrouphomomorphism">
+<h3><span class="section-number">5.3.4. </span>REPN_ComputeUsingSerre (para IsGroupHomomorphism)<a class="headerlink" href="#repn-computeusingserre-para-isgrouphomomorphism" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>El atributo <code class="docutils literal notranslate"><span class="pre">REPN_ComputeUsingSerre(</span> <span class="pre">rho)</span></code> devuelve un <code class="docutils literal notranslate"><span class="pre">registro</span></code> o <code class="docutils literal notranslate"><span class="pre">record</span></code> en el formato que se describe a continuación.</p>
+<p>Esta función hace todo el cálculo y (dado que es un atributo) guarda los resultados. Hacer todos los cálculos al mismo tiempo garantiza la coherencia en lo que respecta a la ordenación irreparable, la ordenación por bloques y la ordenación básica. No hay un ordenamiento canónico de <code class="docutils literal notranslate"><span class="pre">irreps</span></code>, por lo que esto es crucial.</p>
+<p><code class="docutils literal notranslate"><span class="pre">irreps</span></code> es la lista completa de <code class="docutils literal notranslate"><span class="pre">irreps</span></code> involucrados en la descomposición de suma directa de <code class="docutils literal notranslate"><span class="pre">rho</span></code>, esto se puede dar en caso de que el valor predeterminado (ejecutando el <em>algoritmo de Dixon</em>) sea demasiado costoso, o por ejemplo, no desea representaciones sobre <code class="docutils literal notranslate"><span class="pre">Cyclotomics</span></code>.</p>
+<p>El valor de retorno de esta función es un registro con campos:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">basis</span></code>: La base que bloque diagonaliza <span class="math notranslate nohighlight">\(\rho\)</span>, ver <code class="docutils literal notranslate"><span class="pre">BlockDiagonalBasisOfRepresentation</span> <span class="pre">(5.1.1)</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">diagonal_rep</span></code>: <span class="math notranslate nohighlight">\(\rho\)</span>, bloque diagonalizado con la base anterior. ver <code class="docutils literal notranslate"><span class="pre">BlockDiagonalRepresentation</span> <span class="pre">(5.1.2)</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">decomposition</span></code>: Los subespacios <span class="math notranslate nohighlight">\(G-\text{invariables irreductibles}\)</span>, recopilados según el isomorfismo, ver <code class="docutils literal notranslate"><span class="pre">IrreducibleDecompositionCollected</span>&#160; <span class="pre">(5.1.3)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">centralizer_basis</span></code>: Una base ortonormal para el anillo centralizador de <span class="math notranslate nohighlight">\(\rho\)</span>, escrito en forma de bloque. Ver <code class="docutils literal notranslate"><span class="pre">CentralizerBlocksOfRepresentation</span> <span class="pre">(6.1.1)</span></code></p></li>
+</ul>
+</div></blockquote>
+<p>Pase la opción paralelo para que los cálculos por irreparación se realicen en paralelo.</p>
+<p>Pase la opción irreps con la lista completa de irreps de <span class="math notranslate nohighlight">\(\rho\)</span> para evitar volver a calcular esta lista (podría ser muy costoso)</p>
+<div class="literal-block-wrapper docutils container" id="ejemplo-repn-computeusingserre">
+<div class="code-block-caption"><span class="caption-text">función REPN_ComputeUsingSerre</span><a class="headerlink" href="#ejemplo-repn-computeusingserre" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">LoadPackage</span><span class="p">(</span> <span class="s">&quot;RepnDecomp&quot;</span> <span class="p">)</span><span class="o">;</span>
+<span class="o">...</span>
+<span class="o">...</span> <span class="nv">el</span> <span class="nv">resto</span> <span class="nv">de</span> <span class="nv">código</span> <span class="nv">de</span> <span class="nv">los</span> <span class="nv">ejemplos</span> <span class="nv">anteriores</span>
+<span class="o">...</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">tau_diag</span> <span class="o">:=</span> <span class="nv">ComposeHomFunction</span><span class="p">(</span><span class="nv">tau</span><span class="o">,</span> <span class="nv">X</span> <span class="o">-&gt;</span> <span class="nv">nice_basis</span><span class="o">^-</span><span class="nv">1</span> <span class="o">*</span> <span class="nv">X</span> <span class="o">*</span> <span class="nv">nice_basis</span><span class="p">)</span><span class="o">;</span>
+<span class="p">[</span> <span class="p">(</span><span class="nv">1</span><span class="o">,</span><span class="nv">2</span><span class="o">,</span><span class="nv">3</span><span class="p">)</span><span class="o">,</span> <span class="p">(</span><span class="nv">1</span><span class="o">,</span><span class="nv">2</span><span class="p">)</span> <span class="p">]</span> <span class="o">-&gt;</span> <span class="p">[</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">E</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">E</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span> <span class="p">]</span> <span class="p">]</span><span class="o">,</span>
+  <span class="p">[</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">E</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">E</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span> <span class="p">]</span> <span class="p">]</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># Ejemplo_REPN_ComputeUsingSerre</span>
+<span class="hll"><span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># Hace lo mismo que hemos hecho en los ejemplos anteriores, pero todo</span>
+</span><span class="hll"><span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># en un solo paso, con tantas subcomputaciones reutilizadas como sea posible</span>
+</span><span class="hll"><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">REPN_ComputeUsingSerre</span><span class="p">(</span><span class="nv">tau</span><span class="p">)</span><span class="o">;</span>
+</span><span class="hll"><span class="k">rec</span><span class="p">(</span> <span class="nv">basis</span> <span class="o">:=</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">1</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">E</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span><span class="o">,</span> <span class="nv">E</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">E</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span><span class="o">,</span> <span class="nv">E</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span> <span class="p">]</span> <span class="p">]</span><span class="o">,</span>
+</span><span class="hll">  <span class="nv">centralizer_basis</span> <span class="o">:=</span> <span class="p">[</span> <span class="p">[</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">1</span> <span class="p">]</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span> <span class="p">]</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">0</span> <span class="p">]</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">1</span> <span class="p">]</span> <span class="p">]</span> <span class="p">]</span> <span class="p">]</span><span class="o">,</span>
+</span><span class="hll">    <span class="nv">decomposition</span> <span class="o">:=</span> <span class="p">[</span> <span class="p">[</span> <span class="k">rec</span><span class="p">(</span> <span class="nv">basis</span> <span class="o">:=</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">1</span> <span class="p">]</span> <span class="p">]</span> <span class="p">)</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span>  <span class="p">]</span><span class="o">,</span>
+</span><span class="hll">          <span class="p">[</span> <span class="k">rec</span><span class="p">(</span> <span class="nv">basis</span> <span class="o">:=</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">E</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span><span class="o">,</span> <span class="nv">E</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">E</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span><span class="o">,</span> <span class="nv">E</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span> <span class="p">]</span> <span class="p">]</span> <span class="p">)</span> <span class="p">]</span> <span class="p">]</span><span class="o">,</span> <span class="nv">diagonal_rep</span> <span class="o">:=</span> <span class="p">[</span> <span class="p">(</span><span class="nv">1</span><span class="o">,</span><span class="nv">2</span><span class="o">,</span><span class="nv">3</span><span class="p">)</span><span class="o">,</span> <span class="p">(</span><span class="nv">1</span><span class="o">,</span><span class="nv">2</span><span class="p">)</span> <span class="p">]</span> <span class="o">-&gt;</span>
+</span><span class="hll">              <span class="p">[</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">E</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">E</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span> <span class="p">]</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">E</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">E</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span> <span class="p">]</span> <span class="p">]</span> <span class="p">)</span>
+</span><span class="hll"><span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># También puedes hacer el cálculo en paralelo:</span>
+</span><span class="hll"><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">REPN_ComputeUsingSerre</span><span class="p">(</span><span class="nv">tau</span> : <span class="nv">parallel</span><span class="p">)</span><span class="o">;;</span>
+</span><span class="hll"><span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># O especifique los irreps si ya los ha calculado:</span>
+</span><span class="hll"><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">irreps_H</span> <span class="o">:=</span> <span class="nv">IrreducibleRepresentations</span><span class="p">(</span><span class="nv">H</span><span class="p">)</span><span class="o">;;</span>
+</span><span class="hll"><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">REPN_ComputeUsingSerre</span><span class="p">(</span><span class="nv">tau</span> : <span class="nv">irreps</span> <span class="o">:=</span> <span class="nv">irreps_H</span><span class="p">)</span><span class="o">;;</span>
+</span><span class="nv">gap</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<ul class="simple">
+<li><p>La secuencia de ejemplos completa está en <a class="reference internal" href="ejemplo-de-descomposiciones-de-representaciones.html"><span class="doc">Ejemplos de Descomposiciones de representaciones</span></a>.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="06-anillos-centralizadores-conmutadores.html" class="btn btn-neutral float-right" title="6. Anillos centralizadores (conmutadores)" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="04-algunas-funciones-utiles.html" class="btn btn-neutral float-left" title="4. Algunas Funciones útiles" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Derechos de autor 2021, Ferreira, Juan David.
+
+    </p>
+  </div>
+    
+    
+    
+    Construido con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
