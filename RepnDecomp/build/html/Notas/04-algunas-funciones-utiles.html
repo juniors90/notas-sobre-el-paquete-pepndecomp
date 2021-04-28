@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>4. Algunas Funciones útiles &mdash; documentación de Notas sobre el paquete RepnDecomp - 0.0.1</title>
+  <title>4. Algunas Funciones útiles &mdash; documentación de Notas sobre la documentación del paquete RepnDecomp - 0.0.1</title>
   
 
   
@@ -55,7 +55,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> Notas sobre el paquete RepnDecomp
+            <a href="../index.html" class="icon icon-home"> Notas sobre la documentación del paquete RepnDecomp
           
 
           
@@ -146,7 +146,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Notas sobre el paquete RepnDecomp</a>
+          <a href="../index.html">Notas sobre la documentación del paquete RepnDecomp</a>
         
       </nav>
 
@@ -203,12 +203,12 @@
 <div class="section" id="predicadas-para-representaciones">
 <h2><span class="section-number">4.1. </span>Predicadas para representaciones<a class="headerlink" href="#predicadas-para-representaciones" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="section" id="isfinitegrouplinearrepresentation">
-<h3><span class="section-number">4.1.1. </span>IsFiniteGroupLinearRepresentation<a class="headerlink" href="#isfinitegrouplinearrepresentation" title="Enlazar permanentemente con este título">¶</a></h3>
+<span id="id1"></span><h3><span class="section-number">4.1.1. </span>IsFiniteGroupLinearRepresentation<a class="headerlink" href="#isfinitegrouplinearrepresentation" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>El atributo <code class="docutils literal notranslate"><span class="pre">IsFiniteGroupLinearRepresentation(</span> <span class="pre">rho</span> <span class="pre">)</span></code> devuelve <code class="docutils literal notranslate"><span class="pre">true</span></code> o <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
 <p>Le dice si <code class="docutils literal notranslate"><span class="pre">rho</span></code> es una representación lineal de un grupo finito. Los algoritmos implementados en este paquete funcionan solo con estos homomorfismos.</p>
 </div>
 <div class="section" id="isfinitegrouppermutationrepresentation">
-<h3><span class="section-number">4.1.2. </span>IsFiniteGroupPermutationRepresentation<a class="headerlink" href="#isfinitegrouppermutationrepresentation" title="Enlazar permanentemente con este título">¶</a></h3>
+<span id="id2"></span><h3><span class="section-number">4.1.2. </span>IsFiniteGroupPermutationRepresentation<a class="headerlink" href="#isfinitegrouppermutationrepresentation" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>El atributo <code class="docutils literal notranslate"><span class="pre">IsFiniteGroupPermutationRepresentation(</span> <span class="pre">rho</span> <span class="pre">)</span></code> devuelve <code class="docutils literal notranslate"><span class="pre">true</span></code> o <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
 <p>Le dice si <code class="docutils literal notranslate"><span class="pre">rho</span></code> es un homomorfismo de un grupo finito a un grupo de permutación.</p>
 </div>
@@ -216,7 +216,7 @@
 <div class="section" id="suma-eficiente-de-grupos">
 <h2><span class="section-number">4.2. </span>Suma eficiente de grupos<a class="headerlink" href="#suma-eficiente-de-grupos" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="section" id="groupsumbsgs">
-<h3><span class="section-number">4.2.1. </span>GroupSumBSGS<a class="headerlink" href="#groupsumbsgs" title="Enlazar permanentemente con este título">¶</a></h3>
+<span id="id3"></span><h3><span class="section-number">4.2.1. </span>GroupSumBSGS<a class="headerlink" href="#groupsumbsgs" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>La función <code class="docutils literal notranslate"><span class="pre">GroupSumBSGS(G,</span> <span class="pre">summand)</span></code> devuelve <span class="math notranslate nohighlight">\(\displaystyle\sum_{g \in G} \text{summand}(g)\)</span></p>
 <p>Utiliza una cadena estabilizadora básica por <span class="math notranslate nohighlight">\(G\)</span> para calcular la suma descrita anteriormente. Este truco requiere que <code class="docutils literal notranslate"><span class="pre">summand</span></code> sea una función (en el sentido de <strong>GAP</strong>) que defina un homomorfismo monoide (en el sentido matemático). El cálculo de la cadena estabilizadora asume que <span class="math notranslate nohighlight">\(G\)</span> es un grupo.</p>
 <p>Más precisamente, si tenemos la cadena estabilizadora básica:</p>
@@ -235,7 +235,7 @@
 <p>Esto se puede evitar almacenando el tensor de matrices como pares, esencialmente almacenando <span class="math notranslate nohighlight">\(A \otimes B\)</span> como un par <span class="math notranslate nohighlight">\((A, B)\)</span> e implementando operaciones de grupo en encima de éstos, junto con algunas funciones teóricas de representación.</p>
 <p>Solo es posible garantizar una representación económica para tensores puros, es decir, matrices de la forma <span class="math notranslate nohighlight">\(A \otimes B\)</span>. Estas están cerradas bajo operaciones de grupo, por lo que es natural definir una estructura de grupo.</p>
 <div class="section" id="istensorproductofmatricesobj-for-ismultiplicativeelementwithinverse">
-<h3><span class="section-number">4.3.1. </span>IsTensorProductOfMatricesObj (for IsMultiplicativeElementWithInverse)<a class="headerlink" href="#istensorproductofmatricesobj-for-ismultiplicativeelementwithinverse" title="Enlazar permanentemente con este título">¶</a></h3>
+<span id="istensorproductofmatricesobj"></span><h3><span class="section-number">4.3.1. </span>IsTensorProductOfMatricesObj (for IsMultiplicativeElementWithInverse)<a class="headerlink" href="#istensorproductofmatricesobj-for-ismultiplicativeelementwithinverse" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>El filtro <code class="docutils literal notranslate"><span class="pre">IsTensorProductOfMatricesObj(</span> <span class="pre">arg</span> <span class="pre">)</span></code> devuelve <code class="docutils literal notranslate"><span class="pre">true</span></code> o <code class="docutils literal notranslate"><span class="pre">false</span></code>. La posición i en esta representación almacena la matriz <span class="math notranslate nohighlight">\(A_{i}\)</span> en el producto tensorial <span class="math notranslate nohighlight">\(A_{1} \otimes A_{2}\)</span>.</p>
 </div>
 <div class="section" id="istensorproductpairrep-for-ispositionalobjectrep">
@@ -248,18 +248,18 @@
 <p>El filtro <code class="docutils literal notranslate"><span class="pre">IsTensorProductKroneckerRep(</span> <span class="pre">arg</span> <span class="pre">)</span></code> devuelve <code class="docutils literal notranslate"><span class="pre">true</span></code> o <code class="docutils literal notranslate"><span class="pre">false</span></code>. Constructor más conveniente para un producto tensor (maneja automáticamente la familia).</p>
 </div>
 <div class="section" id="tensorproductofmatrices">
-<h3><span class="section-number">4.3.4. </span>TensorProductOfMatrices<a class="headerlink" href="#tensorproductofmatrices" title="Enlazar permanentemente con este título">¶</a></h3>
+<span id="id4"></span><h3><span class="section-number">4.3.4. </span>TensorProductOfMatrices<a class="headerlink" href="#tensorproductofmatrices" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>La función <code class="docutils literal notranslate"><span class="pre">TensorProductOfMatrices(</span> <span class="pre">arg</span> <span class="pre">)</span></code>. Esto usa la multiplicatividad de los caracteres cuando se toman productos tensoriales para evitar tener que calcular el rastro de una matriz grande.</p>
 </div>
 <div class="section" id="characteroftensorproductofrepresentations">
-<h3><span class="section-number">4.3.5. </span>CharacterOfTensorProductOfRepresentations<a class="headerlink" href="#characteroftensorproductofrepresentations" title="Enlazar permanentemente con este título">¶</a></h3>
+<span id="id5"></span><h3><span class="section-number">4.3.5. </span>CharacterOfTensorProductOfRepresentations<a class="headerlink" href="#characteroftensorproductofrepresentations" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>La función <code class="docutils literal notranslate"><span class="pre">CharacterOfTensorProductOfRepresentations(</span> <span class="pre">arg</span> <span class="pre">)</span></code>.</p>
 </div>
 </div>
 <div class="section" id="matrices-y-homomorfismos">
 <h2><span class="section-number">4.4. </span>Matrices y homomorfismos<a class="headerlink" href="#matrices-y-homomorfismos" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="section" id="composehomfunction">
-<h3><span class="section-number">4.4.1. </span>ComposeHomFunction<a class="headerlink" href="#composehomfunction" title="Enlazar permanentemente con este título">¶</a></h3>
+<span id="id6"></span><h3><span class="section-number">4.4.1. </span>ComposeHomFunction<a class="headerlink" href="#composehomfunction" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>La función <code class="docutils literal notranslate"><span class="pre">ComposeHomFunction(</span> <span class="pre">hom,</span> <span class="pre">func)</span></code> devuelve un homomorfism <span class="math notranslate nohighlight">\(g\)</span> given by <span class="math notranslate nohighlight">\(g(x) = func(hom(x))\)</span>.</p>
 <p>Esto es principalmente por conveniencia, ya que maneja todos los problemas de contabilidad GAP con respecto al rango, <code class="docutils literal notranslate"><span class="pre">ByImages</span></code> vs <code class="docutils literal notranslate"><span class="pre">ByFunction</span></code>, etc.</p>
 </div>
@@ -267,23 +267,23 @@
 <div class="section" id="funciones-teoricas-de-representacion">
 <h2><span class="section-number">4.5. </span>Funciones teóricas de representación<a class="headerlink" href="#funciones-teoricas-de-representacion" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="section" id="tensorproductreplists">
-<h3><span class="section-number">4.5.1. </span>TensorProductRepLists<a class="headerlink" href="#tensorproductreplists" title="Enlazar permanentemente con este título">¶</a></h3>
+<span id="id7"></span><h3><span class="section-number">4.5.1. </span>TensorProductRepLists<a class="headerlink" href="#tensorproductreplists" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>La función <code class="docutils literal notranslate"><span class="pre">TensorProductRepLists(</span> <span class="pre">list1,</span> <span class="pre">list2</span> <span class="pre">)</span></code> devuelve todos los productos tensoriales posibles dados por <span class="math notranslate nohighlight">\(\rho \otimes \tau\)</span> donde <span class="math notranslate nohighlight">\(\rho : G \to \mbox{GL}(V)\)</span> se toma de <code class="docutils literal notranslate"><span class="pre">list1</span></code> y <span class="math notranslate nohighlight">\(\tau : H \to \mbox{GL}(W)\)</span> se toma de <code class="docutils literal notranslate"><span class="pre">list2</span></code>. El resultado es entonces una lista de representaciones de <span class="math notranslate nohighlight">\(G \times H\)</span>.</p>
 </div>
 <div class="section" id="directsumofrepresentations">
-<h3><span class="section-number">4.5.2. </span>DirectSumOfRepresentations<a class="headerlink" href="#directsumofrepresentations" title="Enlazar permanentemente con este título">¶</a></h3>
+<span id="id8"></span><h3><span class="section-number">4.5.2. </span>DirectSumOfRepresentations<a class="headerlink" href="#directsumofrepresentations" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>La función <code class="docutils literal notranslate"><span class="pre">DirectSumOfRepresentations(</span> <span class="pre">list</span> <span class="pre">)</span></code> devuelve la suma directa de la lista de representaciones <code class="docutils literal notranslate"><span class="pre">list</span></code>.`</p>
 </div>
 <div class="section" id="degreeofrepresentation">
-<h3><span class="section-number">4.5.3. </span>DegreeOfRepresentation<a class="headerlink" href="#degreeofrepresentation" title="Enlazar permanentemente con este título">¶</a></h3>
+<span id="id9"></span><h3><span class="section-number">4.5.3. </span>DegreeOfRepresentation<a class="headerlink" href="#degreeofrepresentation" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>La función <code class="docutils literal notranslate"><span class="pre">DegreeOfRepresentation(</span> <span class="pre">rho</span> <span class="pre">)</span></code> devuelve el grado de representación <code class="docutils literal notranslate"><span class="pre">rho</span></code>. Es decir, <span class="math notranslate nohighlight">\(\text{Tr}(\rho(e_G))\)</span>, donde <span class="math notranslate nohighlight">\(e_G\)</span> es la identidad del grupo <span class="math notranslate nohighlight">\(G\)</span> que <code class="docutils literal notranslate"><span class="pre">rho</span></code> tiene como dominio.</p>
 </div>
 <div class="section" id="permtolinearrep">
-<h3><span class="section-number">4.5.4. </span>PermToLinearRep<a class="headerlink" href="#permtolinearrep" title="Enlazar permanentemente con este título">¶</a></h3>
+<span id="id10"></span><h3><span class="section-number">4.5.4. </span>PermToLinearRep<a class="headerlink" href="#permtolinearrep" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>La función <code class="docutils literal notranslate"><span class="pre">PermToLinearRep(</span> <span class="pre">rho</span> <span class="pre">)</span></code> devuelve la representación lineal <span class="math notranslate nohighlight">\(\rho\)</span> isomorfa a la representación de permutación <code class="docutils literal notranslate"><span class="pre">rho</span></code>.</p>
 </div>
 <div class="section" id="isorthonormalset">
-<h3><span class="section-number">4.5.5. </span>IsOrthonormalSet<a class="headerlink" href="#isorthonormalset" title="Enlazar permanentemente con este título">¶</a></h3>
+<span id="id11"></span><h3><span class="section-number">4.5.5. </span>IsOrthonormalSet<a class="headerlink" href="#isorthonormalset" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>La función <code class="docutils literal notranslate"><span class="pre">IsOrthonormalSet(</span> <span class="pre">S,</span> <span class="pre">prod</span> <span class="pre">)</span></code> devuelve si <code class="docutils literal notranslate"><span class="pre">S</span></code> es un conjunto ortonormal con respecto al producto interno <code class="docutils literal notranslate"><span class="pre">prod</span></code>.</p>
 </div>
 </div>

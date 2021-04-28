@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'Notas sobre el paquete RepnDecomp'
+project = 'Notas sobre la documentación del paquete RepnDecomp'
 copyright = '2021, Ferreira, Juan David'
 author = 'Ferreira, Juan David'
 

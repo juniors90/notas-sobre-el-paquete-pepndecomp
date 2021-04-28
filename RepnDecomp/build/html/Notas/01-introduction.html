@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>1. Inicio rápido con el paquete RepnDecomp &mdash; documentación de Notas sobre el paquete RepnDecomp - 0.0.1</title>
+  <title>1. Inicio rápido con el paquete RepnDecomp &mdash; documentación de Notas sobre la documentación del paquete RepnDecomp - 0.0.1</title>
   
 
   
@@ -55,7 +55,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> Notas sobre el paquete RepnDecomp
+            <a href="../index.html" class="icon icon-home"> Notas sobre la documentación del paquete RepnDecomp
           
 
           
@@ -119,7 +119,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Notas sobre el paquete RepnDecomp</a>
+          <a href="../index.html">Notas sobre la documentación del paquete RepnDecomp</a>
         
       </nav>
 
@@ -181,7 +181,7 @@
 <p class="admonition-title">Nota</p>
 <p>sobre lo que se entiende por representación</p>
 <p>A lo largo de esta documentación, se utiliza terminología matemática, por ejemplo: <span class="underline">representación</span>. Está claro lo que se quiere decir matemáticamente, pero no está del todo claro lo que se quiere decir en términos de tipos de <strong>GAP</strong>, qué se supone que debes pasar cuando digo «pasar una representación». De vez en cuando ni siquiera mencionaré lo que estamos transmitiendo y supongo que el lector sabe que <strong>rho</strong> o <span class="math notranslate nohighlight">\(\rho\)</span> se refieren a una representación.</p>
-<p>Una representación que podemos usar es, en <strong>GAP</strong>, un homomorfismo de un grupo finito a un grupo de matrices donde todas las matrices tienen coeficientes en un campo ciclotómico - no sé si es la traducción correcta - (<code class="docutils literal notranslate"><span class="pre">Cyclotomics</span></code> es la unión de todos esos campos en <strong>GAP</strong>). Puede verificar si algo que desea pasar es adecuado con la función <code class="docutils literal notranslate"><span class="pre">IsFiniteGroupLinearRepresentation</span> <span class="pre">(4.1.1)</span></code>.</p>
+<p>Una representación que podemos usar es, en <strong>GAP</strong>, un homomorfismo de un grupo finito a un grupo de matrices donde todas las matrices tienen coeficientes en un campo ciclotómico - no sé si es la traducción correcta - (<code class="docutils literal notranslate"><span class="pre">Cyclotomics</span></code> es la unión de todos esos campos en <strong>GAP</strong>). Puede verificar si algo que desea pasar es adecuado con la función <a class="reference internal" href="04-algunas-funciones-utiles.html#isfinitegrouplinearrepresentation"><span class="std std-ref">IsFiniteGroupLinearRepresentation</span></a>.</p>
 <p>A continuación, se muestra un ejemplo de una representación <strong>rho</strong> en <strong>GAP</strong>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gap</span><span class="o">&gt;</span> <span class="n">G</span> <span class="o">:=</span> <span class="n">SymmetricGroup</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
 <span class="n">Sym</span><span class="p">(</span> <span class="p">[</span> <span class="mi">1</span> <span class="o">..</span> <span class="mi">3</span> <span class="p">]</span> <span class="p">)</span>
@@ -206,41 +206,41 @@
 </div></blockquote>
 <p>El valor predeterminado es utilizar los algoritmos de Serre. Si pasa la opción <code class="docutils literal notranslate"><span class="pre">method</span> <span class="pre">:=</span> <span class="pre">&quot;alternate&quot;</span></code> a una función, utilizará el método alternativo. Al pasar la opción en paralelo, se intentará calcular en paralelo tanto como sea posible. Consulte las funciones individuales para conocer las opciones que puede aprobar.</p>
 <p>Las principales funciones implementadas en este paquete son:</p>
-<p><span class="underline">Para descomponer representaciones en sumandos directos canónicos e irreducibles:</span> (ver si stá bien la traducción)</p>
+<p><span class="underline">Para descomponer representaciones en sumandos directos canónicos e irreducibles:</span> (ver si esta bien la traducción)</p>
 <blockquote>
 <div><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">CanonicalDecomposition</span> <span class="pre">(5.3.1)</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">IrreducibleDecomposition</span> <span class="pre">(5.3.2)</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">IrreducibleDecompositionCollected</span> <span class="pre">(5.3.3)</span></code></p></li>
+<li><p><a class="reference internal" href="05-calcular-descomposiciones-de-representaciones.html#canonicaldecomposition"><span class="std std-ref">CanonicalDecomposition</span></a></p></li>
+<li><p><a class="reference internal" href="05-calcular-descomposiciones-de-representaciones.html#irreducibledecomposition"><span class="std std-ref">IrreducibleDecomposition</span></a></p></li>
+<li><p><a class="reference internal" href="05-calcular-descomposiciones-de-representaciones.html#irreducibledecompositioncollected"><span class="std std-ref">IrreducibleDecompositionCollected</span></a></p></li>
 </ul>
 </div></blockquote>
 <p><span class="underline">Para representaciones de diagonalización de bloques:</span></p>
 <blockquote>
 <div><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">BlockDiagonalBasisOfRepresentation</span> <span class="pre">(5.1.1)</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">BlockDiagonalRepresentation</span> <span class="pre">(5.1.2)</span></code></p></li>
+<li><p><a class="reference internal" href="05-calcular-descomposiciones-de-representaciones.html#blockdiagonalbasisofrepresentation"><span class="std std-ref">BlockDiagonalBasisOfRepresentation</span></a></p></li>
+<li><p><a class="reference internal" href="05-calcular-descomposiciones-de-representaciones.html#blockdiagonalrepresentation"><span class="std std-ref">BlockDiagonalRepresentation</span></a></p></li>
 </ul>
 </div></blockquote>
 <p><span class="underline">Para calcular anillos centralizadores:</span></p>
 <blockquote>
 <div><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">CentralizerBlocksOfRepresentation</span> <span class="pre">(6.1.1)</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">CentralizerOfRepresentation</span> <span class="pre">(6.1.2)</span></code></p></li>
+<li><p><a class="reference internal" href="06-anillos-centralizadores-conmutadores.html#centralizerblocksofrepresentation"><span class="std std-ref">CentralizerBlocksOfRepresentation</span></a></p></li>
+<li><p><a class="reference internal" href="06-anillos-centralizadores-conmutadores.html#centralizerofrepresentation"><span class="std std-ref">CentralizerOfRepresentation</span></a></p></li>
 </ul>
 </div></blockquote>
 <p><span class="underline">Para probar isomorfismo y calcular isomorfismos (operadores entrelazados) entre representaciones:</span></p>
 <blockquote>
 <div><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Isomorfismo</span> <span class="pre">de</span> <span class="pre">representación</span> <span class="pre">lineal</span> <span class="pre">(2.1.1)</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">AreRepsIsomorphic</span> <span class="pre">(2.2.1)</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">IsLinearRepresentationIsomorphism</span> <span class="pre">(2.2.2)</span></code></p></li>
+<li><p><a class="reference internal" href="02-isomorfismos-entre-representaciones.html#linearrepresentationisomorphism"><span class="std std-ref">LinearRepresentationIsomorphism</span></a></p></li>
+<li><p><a class="reference internal" href="02-isomorfismos-entre-representaciones.html#arerepsisomorphic"><span class="std std-ref">AreRepsIsomorphic</span></a></p></li>
+<li><p><a class="reference internal" href="02-isomorfismos-entre-representaciones.html#islinearrepresentationisomorphism"><span class="std std-ref">IsLinearRepresentationIsomorphism</span></a></p></li>
 </ul>
 </div></blockquote>
 <p><span class="underline">Para probar la unitaridad de representaciones y la unitarización de representaciones:</span></p>
 <blockquote>
 <div><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Representación</span> <span class="pre">unitaria</span> <span class="pre">(3.1.1)</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">IsUnitaryRepresentation</span> <span class="pre">(3.1.2)</span></code></p></li>
+<li><p><a class="reference internal" href="03-algoritmos-para-representaciones-unitarias.html#unitaryrepresentation"><span class="std std-ref">UnitaryRepresentation</span></a></p></li>
+<li><p><a class="reference internal" href="03-algoritmos-para-representaciones-unitarias.html#isunitaryrepresentation"><span class="std std-ref">IsUnitaryRepresentation</span></a></p></li>
 </ul>
 </div></blockquote>
 </div>

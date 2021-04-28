@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>3. Algoritmos para representaciones unitarias &mdash; documentación de Notas sobre el paquete RepnDecomp - 0.0.1</title>
+  <title>3. Algoritmos para representaciones unitarias &mdash; documentación de Notas sobre la documentación del paquete RepnDecomp - 0.0.1</title>
   
 
   
@@ -55,7 +55,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> Notas sobre el paquete RepnDecomp
+            <a href="../index.html" class="icon icon-home"> Notas sobre la documentación del paquete RepnDecomp
           
 
           
@@ -127,7 +127,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Notas sobre el paquete RepnDecomp</a>
+          <a href="../index.html">Notas sobre la documentación del paquete RepnDecomp</a>
         
       </nav>
 
@@ -184,9 +184,9 @@
 <div class="section" id="unitarizar-representaciones-unitarising-representations">
 <h2><span class="section-number">3.1. </span>Unitarizar representaciones (Unitarising representations)<a class="headerlink" href="#unitarizar-representaciones-unitarising-representations" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="section" id="unitaryrepresentation">
-<h3><span class="section-number">3.1.1. </span>UnitaryRepresentation<a class="headerlink" href="#unitaryrepresentation" title="Enlazar permanentemente con este título">¶</a></h3>
+<span id="id1"></span><h3><span class="section-number">3.1.1. </span>UnitaryRepresentation<a class="headerlink" href="#unitaryrepresentation" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>La función <code class="docutils literal notranslate"><span class="pre">UnitaryRepresentation(</span> <span class="pre">rho)</span></code> devuelve un <code class="docutils literal notranslate"><span class="pre">registro</span></code> (<code class="docutils literal notranslate"><span class="pre">record</span></code>), con los campos <code class="docutils literal notranslate"><span class="pre">basis_change</span></code> y <code class="docutils literal notranslate"><span class="pre">unitary_rep</span></code> tal que <code class="docutils literal notranslate"><span class="pre">rho</span></code> es isomorfo a <code class="docutils literal notranslate"><span class="pre">unitary_rep</span></code>, diferenciado por un cambio de base <code class="docutils literal notranslate"><span class="pre">basis_change</span></code>. Es decir, si <span class="math notranslate nohighlight">\(L\)</span> es <code class="docutils literal notranslate"><span class="pre">basis_change</span></code> y  <span class="math notranslate nohighlight">\(\rho_{u}\)</span>  es el <code class="docutils literal notranslate"><span class="pre">rho</span></code> unitarizado, entonces <span class="math notranslate nohighlight">\(\forall g \in G: \; L \rho_{u}(g) L^{-1} = \rho(g)\)</span>.</p>
-<p>Unitariza la representación dada rápidamente, sumando sobre el grupo usando una base y un conjunto de generadores fuertes y unitarizando con <code class="docutils literal notranslate"><span class="pre">LDLDecomposition</span> <span class="pre">(3.1.3)</span></code> - <span class="underline">traducir y explicar bien esta pequeña linea de texto, luego eliminar el subrayado del código</span> -.</p>
+<p>Unitariza la representación dada rápidamente, sumando sobre el grupo usando una base y un conjunto de generadores fuertes y unitarizando con <a class="reference internal" href="#ldldecomposition"><span class="std std-ref">LDLDecomposition</span></a> - <span class="underline">traducir y explicar bien esta pequeña linea de texto, luego eliminar el subrayado del código</span> -.</p>
 <div class="literal-block-wrapper docutils container" id="ejemplo-unitaryrepresentation">
 <div class="code-block-caption"><span class="caption-text">función UnitaryRepresentation</span><a class="headerlink" href="#ejemplo-unitaryrepresentation" title="Enlace permanente a este código fuente">¶</a></div>
 <div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">LoadPackage</span><span class="p">(</span> <span class="s">&quot;RepnDecomp&quot;</span> <span class="p">)</span><span class="o">;</span>
@@ -233,7 +233,7 @@
 </div>
 </div>
 <div class="section" id="isunitaryrepresentation">
-<h3><span class="section-number">3.1.2. </span>IsUnitaryRepresentation<a class="headerlink" href="#isunitaryrepresentation" title="Enlazar permanentemente con este título">¶</a></h3>
+<span id="id2"></span><h3><span class="section-number">3.1.2. </span>IsUnitaryRepresentation<a class="headerlink" href="#isunitaryrepresentation" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>La función <code class="docutils literal notranslate"><span class="pre">IsUnitaryRepresentation(</span> <span class="pre">rho</span> <span class="pre">)</span></code> devuelve: Si <code class="docutils literal notranslate"><span class="pre">rho</span></code> es unitario, es decir, para todo <span class="math notranslate nohighlight">\(g \in G\)</span>, <span class="math notranslate nohighlight">\(\rho(g^{-1}) = \rho(g)^\ast\)</span> (donde <span class="math notranslate nohighlight">\(^\ast\)</span> denota la transposición conjugada).</p>
 <div class="literal-block-wrapper docutils container" id="ejemplo-isunitaryrepresentation">
 <div class="code-block-caption"><span class="caption-text">función IsUnitaryRepresentation</span><a class="headerlink" href="#ejemplo-isunitaryrepresentation" title="Enlace permanente a este código fuente">¶</a></div>
@@ -243,7 +243,7 @@
 </div>
 </div>
 <div class="section" id="ldldecomposition">
-<h3><span class="section-number">3.1.3. </span>LDLDecomposition<a class="headerlink" href="#ldldecomposition" title="Enlazar permanentemente con este título">¶</a></h3>
+<span id="id3"></span><h3><span class="section-number">3.1.3. </span>LDLDecomposition<a class="headerlink" href="#ldldecomposition" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>La función <code class="docutils literal notranslate"><span class="pre">LDLDecomposition(</span> <span class="pre">A</span> <span class="pre">)</span></code> devuelve un <code class="docutils literal notranslate"><span class="pre">registro</span></code> o <code class="docutils literal notranslate"><span class="pre">record</span></code> con dos campos, <span class="math notranslate nohighlight">\(L\)</span> y <span class="math notranslate nohighlight">\(D\)</span> tal que <span class="math notranslate nohighlight">\(A = L\text{diag}(D)L^\ast\)</span>. <span class="math notranslate nohighlight">\(D\)</span> es el vector <span class="math notranslate nohighlight">\(1 \times n\)</span> que da la matriz diagonal <span class="math notranslate nohighlight">\(\text{diag}(D)\)</span> (donde <code class="docutils literal notranslate"><span class="pre">A</span></code> es una matriz <span class="math notranslate nohighlight">\(n \times n\)</span>)</p>
 <div class="literal-block-wrapper docutils container" id="ejemplo-ldldecomposition">
 <div class="code-block-caption"><span class="caption-text">función LDLDecomposition</span><a class="headerlink" href="#ejemplo-ldldecomposition" title="Enlace permanente a este código fuente">¶</a></div>

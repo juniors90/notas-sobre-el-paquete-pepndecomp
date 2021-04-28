@@ -4,8 +4,12 @@
 Isomorfismos entre representaciones
 ==================================================
 
+.. _buscando-isomorphismos-explicitos:
+
 Buscando isomorphismos explicitos
 ------------------------------------
+
+.. _LinearRepresentationIsomorphism:
 
 LinearRepresentationIsomorphism
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -16,7 +20,7 @@ Sea :math:`\rho : G \to GL(V)` y :math:`\tau : G \to GL(W)`. Si existe un mapa l
 
 Hay tres métodos que podemos usar para calcular un isomorfismo de representaciones lineales, puede seleccionar uno pasando opciones a la función.
 
-    - ``use_kronecker``: asume que las matrices son lo suficientemente pequeñas como para que sus productos Kronecker puedan caber en la memoria. Utiliza ``GroupSumBSGS (4.2.1)`` y ``KroneckerProduct`` para calcular un elemento del subespacio fijo de :math:`\rho \otimes \tau^{\ast}`.
+    - ``use_kronecker``: asume que las matrices son lo suficientemente pequeñas como para que sus productos Kronecker puedan caber en la memoria. Utiliza :ref:`GroupSumBSGS` y ``KroneckerProduct`` para calcular un elemento del subespacio fijo de :math:`\rho \otimes \tau^{\ast}`.
     - ``use_orbit_sum``: Encuentra un isomorfismo sumando las órbitas de la acción de :math:`\rho \otimes \tau^{\ast}` en matrices. Tenga en cuenta que las órbitas pueden ser muy grandes, por lo que esto podría ser tan malo como sumar todo el grupo.
     - El valor predeterminado, suma sobre todo el grupo para calcular la proyección en el subespacio fijo.
 
@@ -65,12 +69,15 @@ Hay tres métodos que podemos usar para calcular un isomorfismo de representacio
     fail
     gap>
 
+
+.. _LinearRepresentationIsomorphismSlow:
+
 LinearRepresentationIsomorphismSlow
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 La función ``LinearRepresentationIsomorphismSlow( rho, tau )`` devuelve una matriz :math:`A` o ``fail``
 
-Da el mismo resultado que ``LinearRepresentationIsomorphism (2.1.1)``, pero esta función usa un método más simple que siempre implica sumar sobre :math:`G`, sin usar ``GroupSumBSGS (4.2.1)``. Esto puede resultar útil en algunos casos si resulta difícil calcular un buen ``BSGS``. Sin embargo, para todos los casos que se han probado, es lento (como sugiere el nombre).
+Da el mismo resultado que LinearRepresentationIsomorphism_, pero esta función usa un método más simple que siempre implica sumar sobre :math:`G`, sin usar :ref:`GroupSumBSGS`. Esto puede resultar útil en algunos casos si resulta difícil calcular un buen ``BSGS``. Sin embargo, para todos los casos que se han probado, es lento (como sugiere el nombre).
 
 .. code-block:: gap
     :caption: función LinearRepresentationIsomorphismSlow
@@ -90,8 +97,12 @@ Da el mismo resultado que ``LinearRepresentationIsomorphism (2.1.1)``, pero esta
     true
     gap>
 
+.. _probando-isomorfismos:
+
 Probando Isomorfismos
 ------------------------------------
+
+.. _AreRepsIsomorphic:
 
 AreRepsIsomorphic
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -122,6 +133,8 @@ Dado que las representaciones de grupos finitos sobre :math:`\mathbb{C}` están 
     gap> AreRepsIsomorphic(rho, irreps[1]);
     false
     gap>
+
+.. _IsLinearRepresentationIsomorphism:
 
 IsLinearRepresentationIsomorphism
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

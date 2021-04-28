@@ -12,6 +12,8 @@ Block diagonalizing
 Dada una representación :math:`\rho : G \to GL(V)`, a menudo es deseable encontrar una base para :math:`V` que el bloque diagonalice cada :math:`\rho(g)` con los tamaños de bloque tan pequeños como sea posible. Esto acelera las operaciones de álgebra matricial, ya que ahora se pueden realizar en bloques.
 
 
+.. _BlockDiagonalBasisOfRepresentation:
+
 BlockDiagonalBasisOfRepresentation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -20,24 +22,29 @@ La función ``BlockDiagonalBasisOfRepresentation( rho )`` devuelve una base de :
 Sea :math:`G` tal que tenga representaciones irreductibles :math:`\rho_i`, con dimensión :math:`d_{i}` y multiplicidad :math:`m_{i}`. La base devuelta por esta operación da cada :math:`\rho(g)` como una matriz diagonal de bloques que tiene :math:`m_{i}` bloques de tamaño :math:`d_i \times d_i` para cada :math:`i`.
 
 
+.. _BlockDiagonalRepresentation:
+
 BlockDiagonalRepresentation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-La función ``BlockDiagonalRepresentation( rho )`` devuelve la representación de :math:`G` isomorfo a :math:`\rho` donde las imágenes :math:`\rho(g)` están diagonalizadas en bloque. Esta es solo una operación de conveniencia que usa ``BlockDiagonalBasisOfRepresentation (5.1.1)`` para calcular la matriz de cambio de base y la aplica para poner :math:`\rho` en la forma de bloque diagonalizado.
+La función ``BlockDiagonalRepresentation( rho )`` devuelve la representación de :math:`G` isomorfo a :math:`\rho` donde las imágenes :math:`\rho(g)` están diagonalizadas en bloque. Esta es solo una operación de conveniencia que usa BlockDiagonalBasisOfRepresentation_ para calcular la matriz de cambio de base y la aplica para poner :math:`\rho` en la forma de bloque diagonalizado.
 
 
 Algoritmos debidos a los autores
 ---------------------------------------------------------
 
+.. _REPN_ComputeUsingMyMethod:
 
 REPN_ComputeUsingMyMethod (para IsGroupHomomorphism)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-El atributo ``REPN_ComputeUsingMyMethod( rho )`` devuelve un ``registro`` o ``record`` en el mismo formato que ``REPN_ComputeUsingSerre (5.3.4)``.
+El atributo ``REPN_ComputeUsingMyMethod( rho )`` devuelve un ``registro`` o ``record`` en el mismo formato que REPN_ComputeUsingSerre_.
 
-Calcula los mismos valores que ``REPN_ComputeUsingSerre (5.3.4)``, tomando las mismas opciones. El trabajo pesado de este método se realiza mediante ``LinearRepresentationIsomorphism (2.1.1)``), donde hay algunas opciones adicionales que se pueden pasar para influir en los algoritmos utilizados.
+Calcula los mismos valores que REPN_ComputeUsingSerre_, tomando las mismas opciones. El trabajo pesado de este método se realiza mediante :ref:`LinearRepresentationIsomorphism`), donde hay algunas opciones adicionales que se pueden pasar para influir en los algoritmos utilizados.
 
+
+.. _REPN_ComputeUsingMyMethodCanonical:
 
 REPN_ComputeUsingMyMethodCanonical (para IsGroupHomomorphism)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -45,24 +52,27 @@ REPN_ComputeUsingMyMethodCanonical (para IsGroupHomomorphism)
 
 El atributo ``REPN_ComputeUsingMyMethodCanonical( rho )``  Devuelve un registro en el mismo formato que ``REPN_ComputeUsingMyMethod (5.2.1)``.
 
-Realiza el mismo cálculo que ``REPN_ComputeUsingMyMethod (5.2.1)``, pero primero divide la representación en sumandos canónicos usando ``CanonicalDecomposition (5.3.1)``. Esto podría reducir significativamente el tamaño de las matrices con las que necesitamos trabajar, por lo que podría ser mucho más rápido.
+Realiza el mismo cálculo que REPN_ComputeUsingMyMethod_, pero primero divide la representación en sumandos canónicos usando CanonicalDecomposition_. Esto podría reducir significativamente el tamaño de las matrices con las que necesitamos trabajar, por lo que podría ser mucho más rápido.
 
-Si se da la opción ``parallel``, la descomposición de los sumandos canónicos en ``irreps`` se realiza en
-paralelo, que podría ser mucho más rápido.
+Si se da la opción ``parallel``, la descomposición de los sumandos canónicos en ``irreps`` se realiza en paralelo, que podría ser mucho más rápido.
+
+.. _Algoritmos debidos a Serre:
 
 Algoritmos debidos a Serre
 ---------------------------------------------------------
 
 .. note::
 
-    - Todo el cálculo en esta sección se realiza en realidad en la función ``REPN_ComputeUsingSerre``, las otras funciones son envoltorios a su alrededor.
+    - Todo el cálculo en esta sección se realiza en realidad en la función REPN_ComputeUsingSerre_, las otras funciones son envoltorios a su alrededor.
 
+
+.. _CanonicalDecomposition:
 
 CanonicalDecomposition
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 La función ``CanonicalDecomposition( rho )`` devuelve una lista de espacios vectoriales :math:`V_{i}`, cada :math:`G-\text{invariante}` y una suma directa de irreducibles isomorfos. Es decir, para cada :math:`i`, :math:`V_{i} \cong \oplus_{j} W_{i}` (como representaciones) donde :math:`W_{i}` es un espacio vectorial :math:`G-\text{invariante}` irreductible.
 
-Calcula la descomposición canónica de :math:`V` en :math:`\oplus_{i}\;V_{i}` usando las fórmulas para las proyecciones :math:`$V \to V_{i}$` debido a *Serre*. Puede pasar la opción ``irreps`` con una lista de ``irreps`` de :math:`G`, y esto se utilizará en lugar de calcular una lista completa nosotros mismos. Si ya sabe qué ``irreps`` aparecerán en :math:`\rho`, por ejemplo, esto le ahorrará tiempo.
+Calcula la descomposición canónica de :math:`V` en :math:`\oplus_{i}\;V_{i}` usando las fórmulas para las proyecciones :math:`V \to V_{i}` debido a *Serre*. Puede pasar la opción ``irreps`` con una lista de ``irreps`` de :math:`G`, y esto se utilizará en lugar de calcular una lista completa nosotros mismos. Si ya sabe qué ``irreps`` aparecerán en :math:`\rho`, por ejemplo, esto le ahorrará tiempo.
 
 .. code-block:: gap
     :caption: función CanonicalDecomposition
@@ -104,6 +114,8 @@ Calcula la descomposición canónica de :math:`V` en :math:`\oplus_{i}\;V_{i}` u
       <vector space over Cyclotomics, with 1 generators> ]
     gap>
 
+.. _IrreducibleDecomposition:
+
 IrreducibleDecomposition
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -141,6 +153,9 @@ Calcula la descomposición de :math:`V` en subpresentaciones irreducibles.
       [ [ 1, 0, 0 ], [ 0, 0, E(3)^2 ], [ 0, E(3), 0 ] ] ]
     gap>
 
+
+.. _IrreducibleDecompositionCollected:
+
 IrreducibleDecompositionCollected
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -149,6 +164,7 @@ La función ``IrreducibleDecompositionCollected( rho )`` devuelve una lista de l
 
 Calcula la descomposición de :math:`V` en subrepresentaciones irreducibles, agrupando las subrepresentaciones isomorfas.
 
+.. _REPN_ComputeUsingSerre:
 
 REPN_ComputeUsingSerre (para IsGroupHomomorphism)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -161,13 +177,13 @@ Esta función hace todo el cálculo y (dado que es un atributo) guarda los resul
 
 El valor de retorno de esta función es un registro con campos:
 
-    - ``basis``: La base que bloque diagonaliza :math:`\rho`, ver ``BlockDiagonalBasisOfRepresentation (5.1.1)``.
+    - ``basis``: La base que bloque diagonaliza :math:`\rho`, ver BlockDiagonalBasisOfRepresentation_.
 
-    - ``diagonal_rep``: :math:`\rho`, bloque diagonalizado con la base anterior. ver ``BlockDiagonalRepresentation (5.1.2)``.
+    - ``diagonal_rep``: :math:`\rho`, bloque diagonalizado con la base anterior. ver BlockDiagonalRepresentation_.
 
-    - ``decomposition``: Los subespacios :math:`G-\text{invariables irreductibles}`, recopilados según el isomorfismo, ver ``IrreducibleDecompositionCollected  (5.1.3)``
+    - ``decomposition``: Los subespacios :math:`G-\text{invariables irreductibles}`, recopilados según el isomorfismo, ver IrreducibleDecompositionCollected_
 
-    - ``centralizer_basis``: Una base ortonormal para el anillo centralizador de :math:`\rho`, escrito en forma de bloque. Ver ``CentralizerBlocksOfRepresentation (6.1.1)``
+    - ``centralizer_basis``: Una base ortonormal para el anillo centralizador de :math:`\rho`, escrito en forma de bloque. Ver :ref:`CentralizerBlocksOfRepresentation`
 
 Pase la opción paralelo para que los cálculos por irreparación se realicen en paralelo.
 

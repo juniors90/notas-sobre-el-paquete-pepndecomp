@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>2. Isomorfismos entre representaciones &mdash; documentación de Notas sobre el paquete RepnDecomp - 0.0.1</title>
+  <title>2. Isomorfismos entre representaciones &mdash; documentación de Notas sobre la documentación del paquete RepnDecomp - 0.0.1</title>
   
 
   
@@ -55,7 +55,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> Notas sobre el paquete RepnDecomp
+            <a href="../index.html" class="icon icon-home"> Notas sobre la documentación del paquete RepnDecomp
           
 
           
@@ -127,7 +127,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Notas sobre el paquete RepnDecomp</a>
+          <a href="../index.html">Notas sobre la documentación del paquete RepnDecomp</a>
         
       </nav>
 
@@ -182,15 +182,15 @@
   <div class="section" id="isomorfismos-entre-representaciones">
 <h1><span class="section-number">2. </span>Isomorfismos entre representaciones<a class="headerlink" href="#isomorfismos-entre-representaciones" title="Enlazar permanentemente con este título">¶</a></h1>
 <div class="section" id="buscando-isomorphismos-explicitos">
-<h2><span class="section-number">2.1. </span>Buscando isomorphismos explicitos<a class="headerlink" href="#buscando-isomorphismos-explicitos" title="Enlazar permanentemente con este título">¶</a></h2>
+<span id="id1"></span><h2><span class="section-number">2.1. </span>Buscando isomorphismos explicitos<a class="headerlink" href="#buscando-isomorphismos-explicitos" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="section" id="linearrepresentationisomorphism">
-<h3><span class="section-number">2.1.1. </span>LinearRepresentationIsomorphism<a class="headerlink" href="#linearrepresentationisomorphism" title="Enlazar permanentemente con este título">¶</a></h3>
+<span id="id2"></span><h3><span class="section-number">2.1.1. </span>LinearRepresentationIsomorphism<a class="headerlink" href="#linearrepresentationisomorphism" title="Enlazar permanentemente con este título">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">LinearRepresentationIsomorphism(</span> <span class="pre">rho,</span> <span class="pre">tau[,</span> <span class="pre">rho_cent_basis</span> <span class="pre">,</span> <span class="pre">tau_</span> <span class="pre">cent_basis]</span> <span class="pre">)</span></code> es una función que retorna una matriz <span class="math notranslate nohighlight">\(A\)</span> o <code class="docutils literal notranslate"><span class="pre">fail</span></code></p>
 <p>Sea <span class="math notranslate nohighlight">\(\rho : G \to GL(V)\)</span> y <span class="math notranslate nohighlight">\(\tau : G \to GL(W)\)</span>. Si existe un mapa lineal <span class="math notranslate nohighlight">\(A: V \to W\)</span> tal que para todo <span class="math notranslate nohighlight">\(g \in G\)</span>, <span class="math notranslate nohighlight">\(\tau(g)A = A\rho(g)\)</span>, esta función devuelve uno de esos <span class="math notranslate nohighlight">\(A\)</span>. <span class="math notranslate nohighlight">\(A\)</span> es el isomorfismo entre las representaciones. <span class="underline">Si las representaciones no son isomorfas</span>, se devuelve <code class="docutils literal notranslate"><span class="pre">fail</span></code>.</p>
 <p>Hay tres métodos que podemos usar para calcular un isomorfismo de representaciones lineales, puede seleccionar uno pasando opciones a la función.</p>
 <blockquote>
 <div><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">use_kronecker</span></code>: asume que las matrices son lo suficientemente pequeñas como para que sus productos Kronecker puedan caber en la memoria. Utiliza <code class="docutils literal notranslate"><span class="pre">GroupSumBSGS</span> <span class="pre">(4.2.1)</span></code> y <code class="docutils literal notranslate"><span class="pre">KroneckerProduct</span></code> para calcular un elemento del subespacio fijo de <span class="math notranslate nohighlight">\(\rho \otimes \tau^{\ast}\)</span>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">use_kronecker</span></code>: asume que las matrices son lo suficientemente pequeñas como para que sus productos Kronecker puedan caber en la memoria. Utiliza <a class="reference internal" href="04-algunas-funciones-utiles.html#groupsumbsgs"><span class="std std-ref">GroupSumBSGS</span></a> y <code class="docutils literal notranslate"><span class="pre">KroneckerProduct</span></code> para calcular un elemento del subespacio fijo de <span class="math notranslate nohighlight">\(\rho \otimes \tau^{\ast}\)</span>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">use_orbit_sum</span></code>: Encuentra un isomorfismo sumando las órbitas de la acción de <span class="math notranslate nohighlight">\(\rho \otimes \tau^{\ast}\)</span> en matrices. Tenga en cuenta que las órbitas pueden ser muy grandes, por lo que esto podría ser tan malo como sumar todo el grupo.</p></li>
 <li><p>El valor predeterminado, suma sobre todo el grupo para calcular la proyección en el subespacio fijo.</p></li>
 </ul>
@@ -242,9 +242,9 @@
 </div>
 </div>
 <div class="section" id="linearrepresentationisomorphismslow">
-<h3><span class="section-number">2.1.2. </span>LinearRepresentationIsomorphismSlow<a class="headerlink" href="#linearrepresentationisomorphismslow" title="Enlazar permanentemente con este título">¶</a></h3>
+<span id="id3"></span><h3><span class="section-number">2.1.2. </span>LinearRepresentationIsomorphismSlow<a class="headerlink" href="#linearrepresentationisomorphismslow" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>La función <code class="docutils literal notranslate"><span class="pre">LinearRepresentationIsomorphismSlow(</span> <span class="pre">rho,</span> <span class="pre">tau</span> <span class="pre">)</span></code> devuelve una matriz <span class="math notranslate nohighlight">\(A\)</span> o <code class="docutils literal notranslate"><span class="pre">fail</span></code></p>
-<p>Da el mismo resultado que <code class="docutils literal notranslate"><span class="pre">LinearRepresentationIsomorphism</span> <span class="pre">(2.1.1)</span></code>, pero esta función usa un método más simple que siempre implica sumar sobre <span class="math notranslate nohighlight">\(G\)</span>, sin usar <code class="docutils literal notranslate"><span class="pre">GroupSumBSGS</span> <span class="pre">(4.2.1)</span></code>. Esto puede resultar útil en algunos casos si resulta difícil calcular un buen <code class="docutils literal notranslate"><span class="pre">BSGS</span></code>. Sin embargo, para todos los casos que se han probado, es lento (como sugiere el nombre).</p>
+<p>Da el mismo resultado que <a class="reference internal" href="#linearrepresentationisomorphism">LinearRepresentationIsomorphism</a>, pero esta función usa un método más simple que siempre implica sumar sobre <span class="math notranslate nohighlight">\(G\)</span>, sin usar <a class="reference internal" href="04-algunas-funciones-utiles.html#groupsumbsgs"><span class="std std-ref">GroupSumBSGS</span></a>. Esto puede resultar útil en algunos casos si resulta difícil calcular un buen <code class="docutils literal notranslate"><span class="pre">BSGS</span></code>. Sin embargo, para todos los casos que se han probado, es lento (como sugiere el nombre).</p>
 <div class="literal-block-wrapper docutils container" id="ejemplo-linearrepresentationisomorphismslow">
 <div class="code-block-caption"><span class="caption-text">función LinearRepresentationIsomorphismSlow</span><a class="headerlink" href="#ejemplo-linearrepresentationisomorphismslow" title="Enlace permanente a este código fuente">¶</a></div>
 <div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">LoadPackage</span><span class="p">(</span> <span class="s">&quot;RepnDecomp&quot;</span> <span class="p">)</span><span class="o">;</span>
@@ -265,9 +265,9 @@
 </div>
 </div>
 <div class="section" id="probando-isomorfismos">
-<h2><span class="section-number">2.2. </span>Probando Isomorfismos<a class="headerlink" href="#probando-isomorfismos" title="Enlazar permanentemente con este título">¶</a></h2>
+<span id="id4"></span><h2><span class="section-number">2.2. </span>Probando Isomorfismos<a class="headerlink" href="#probando-isomorfismos" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="section" id="arerepsisomorphic">
-<h3><span class="section-number">2.2.1. </span>AreRepsIsomorphic<a class="headerlink" href="#arerepsisomorphic" title="Enlazar permanentemente con este título">¶</a></h3>
+<span id="id5"></span><h3><span class="section-number">2.2.1. </span>AreRepsIsomorphic<a class="headerlink" href="#arerepsisomorphic" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>La función <code class="docutils literal notranslate"><span class="pre">AreRepsIsomorphic(</span> <span class="pre">rho,</span> <span class="pre">tau)</span></code> devuelve <code class="docutils literal notranslate"><span class="pre">true</span></code> si <code class="docutils literal notranslate"><span class="pre">rho</span></code> y <code class="docutils literal notranslate"><span class="pre">tau</span></code> son isomorfos como representaciones, <code class="docutils literal notranslate"><span class="pre">false</span></code> en caso contrario.</p>
 <p>Dado que las representaciones de grupos finitos sobre <span class="math notranslate nohighlight">\(\mathbb{C}\)</span> están determinadas por sus caracteres, es fácil comprobar si dos representaciones son isomorfas comprobando si tienen el mismo carácter. Intentamos utilizar personajes siempre que sea posible.</p>
 <div class="literal-block-wrapper docutils container" id="ejemplo-arerepsisomorphic">
@@ -294,7 +294,7 @@
 </div>
 </div>
 <div class="section" id="islinearrepresentationisomorphism">
-<h3><span class="section-number">2.2.2. </span>IsLinearRepresentationIsomorphism<a class="headerlink" href="#islinearrepresentationisomorphism" title="Enlazar permanentemente con este título">¶</a></h3>
+<span id="id6"></span><h3><span class="section-number">2.2.2. </span>IsLinearRepresentationIsomorphism<a class="headerlink" href="#islinearrepresentationisomorphism" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>La función <code class="docutils literal notranslate"><span class="pre">IsLinearRepresentationIsomorphism(</span> <span class="pre">A,</span> <span class="pre">rho,</span> <span class="pre">tau)</span></code> devuelve <code class="docutils literal notranslate"><span class="pre">true</span></code> si <code class="docutils literal notranslate"><span class="pre">rho</span></code> y <code class="docutils literal notranslate"><span class="pre">tau</span></code> son <span class="underline">isomorfos como representaciones con el isomorfismo dado por el mapa lineal</span> <span class="math notranslate nohighlight">\(A\)</span>.</p>
 <p>Esta función prueba si, para todo <span class="math notranslate nohighlight">\(g \in G\)</span>, <span class="math notranslate nohighlight">\(A \rho(g) = \tau(g) A\)</span>. Es decir, se devuelve verdadero si y solo sí A es el operador entrelazado que lleva <span class="math notranslate nohighlight">\(\rho\)</span> a <span class="math notranslate nohighlight">\(\tau\)</span>. Veamos,</p>
 <div class="literal-block-wrapper docutils container" id="ejemplo-islinearrepresentationisomorphism">

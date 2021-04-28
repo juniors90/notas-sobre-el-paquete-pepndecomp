@@ -7,12 +7,14 @@ Algoritmos para representaciones unitarias
 Unitarizar representaciones (Unitarising representations)
 -------------------------------------------------------------
 
+.. _UnitaryRepresentation:
+
 UnitaryRepresentation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 La función ``UnitaryRepresentation( rho)`` devuelve un ``registro`` (``record``), con los campos ``basis_change`` y ``unitary_rep`` tal que ``rho`` es isomorfo a ``unitary_rep``, diferenciado por un cambio de base ``basis_change``. Es decir, si :math:`L` es ``basis_change`` y  :math:`\rho_{u}`  es el ``rho`` unitarizado, entonces :math:`\forall g \in G: \; L \rho_{u}(g) L^{-1} = \rho(g)`.
 
-Unitariza la representación dada rápidamente, sumando sobre el grupo usando una base y un conjunto de generadores fuertes y unitarizando con ``LDLDecomposition (3.1.3)`` - :underline:`traducir y explicar bien esta pequeña linea de texto, luego eliminar el subrayado del código` -.
+Unitariza la representación dada rápidamente, sumando sobre el grupo usando una base y un conjunto de generadores fuertes y unitarizando con :ref:`LDLDecomposition` - :underline:`traducir y explicar bien esta pequeña linea de texto, luego eliminar el subrayado del código` -.
 
 .. code-block:: gap
     :caption: función UnitaryRepresentation
@@ -58,6 +60,8 @@ Unitariza la representación dada rápidamente, sumando sobre el grupo usando un
     true
     gap>
 
+.. _IsUnitaryRepresentation:
+
 IsUnitaryRepresentation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -68,6 +72,8 @@ La función ``IsUnitaryRepresentation( rho )`` devuelve: Si ``rho`` es unitario,
     :name: Ejemplo_IsUnitaryRepresentation
 
     gap> # pensar un ejemplo para IsUnitaryRepresentation
+
+.. _LDLDecomposition:
 
 LDLDecomposition
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

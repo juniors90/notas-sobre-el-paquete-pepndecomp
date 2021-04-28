@@ -7,6 +7,8 @@ Algunas Funciones útiles
 Predicadas para representaciones
 -------------------------------------------------------
 
+.. _IsFiniteGroupLinearRepresentation:
+
 IsFiniteGroupLinearRepresentation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -14,6 +16,8 @@ El atributo ``IsFiniteGroupLinearRepresentation( rho )`` devuelve ``true`` o ``f
 
 Le dice si ``rho`` es una representación lineal de un grupo finito. Los algoritmos implementados en este paquete funcionan solo con estos homomorfismos.
 
+
+.. _IsFiniteGroupPermutationRepresentation:
 
 IsFiniteGroupPermutationRepresentation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -24,6 +28,8 @@ Le dice si ``rho`` es un homomorfismo de un grupo finito a un grupo de permutaci
 
 Suma eficiente de grupos
 -------------------------------------------------------
+
+.. _GroupSumBSGS:
 
 GroupSumBSGS
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -59,6 +65,9 @@ Esto se puede evitar almacenando el tensor de matrices como pares, esencialmente
 
 Solo es posible garantizar una representación económica para tensores puros, es decir, matrices de la forma :math:`A \otimes B`. Estas están cerradas bajo operaciones de grupo, por lo que es natural definir una estructura de grupo.
 
+
+.. _IsTensorProductOfMatricesObj:
+
 IsTensorProductOfMatricesObj (for IsMultiplicativeElementWithInverse)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -76,10 +85,14 @@ IsTensorProductKroneckerRep (for IsPositionalObjectRep)
 
 El filtro ``IsTensorProductKroneckerRep( arg )`` devuelve ``true`` o ``false``. Constructor más conveniente para un producto tensor (maneja automáticamente la familia).
 
+.. _TensorProductOfMatrices:
+
 TensorProductOfMatrices
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 La función ``TensorProductOfMatrices( arg )``. Esto usa la multiplicatividad de los caracteres cuando se toman productos tensoriales para evitar tener que calcular el rastro de una matriz grande.
+
+.. _CharacterOfTensorProductOfRepresentations:
 
 CharacterOfTensorProductOfRepresentations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -90,6 +103,8 @@ La función ``CharacterOfTensorProductOfRepresentations( arg )``.
 Matrices y homomorfismos
 -----------------------------------------------------------
 
+.. _ComposeHomFunction:
+
 ComposeHomFunction
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -97,33 +112,45 @@ La función ``ComposeHomFunction( hom, func)`` devuelve un homomorfism :math:`g`
 
 Esto es principalmente por conveniencia, ya que maneja todos los problemas de contabilidad GAP con respecto al rango, ``ByImages`` vs ``ByFunction``, etc.
 
+
+
 Funciones teóricas de representación
 -----------------------------------------------------------
+
+.. _TensorProductRepLists:
 
 TensorProductRepLists
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 La función ``TensorProductRepLists( list1, list2 )`` devuelve todos los productos tensoriales posibles dados por :math:`\rho \otimes \tau` donde :math:`\rho : G \to \mbox{GL}(V)` se toma de ``list1`` y :math:`\tau : H \to \mbox{GL}(W)` se toma de ``list2``. El resultado es entonces una lista de representaciones de :math:`G \times H`.
 
+.. _DirectSumOfRepresentations:
+
 DirectSumOfRepresentations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 La función ``DirectSumOfRepresentations( list )`` devuelve la suma directa de la lista de representaciones ``list``.`
+
+
+.. _DegreeOfRepresentation:
 
 DegreeOfRepresentation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 La función ``DegreeOfRepresentation( rho )`` devuelve el grado de representación ``rho``. Es decir, :math:`\text{Tr}(\rho(e_G))`, donde :math:`e_G` es la identidad del grupo :math:`G` que ``rho`` tiene como dominio.
 
+
+.. _PermToLinearRep:
+
 PermToLinearRep
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 La función ``PermToLinearRep( rho )`` devuelve la representación lineal :math:`\rho` isomorfa a la representación de permutación ``rho``.
 
+
+.. _IsOrthonormalSet:
+
 IsOrthonormalSet
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 La función ``IsOrthonormalSet( S, prod )`` devuelve si ``S`` es un conjunto ortonormal con respecto al producto interno ``prod``.
-
-
-

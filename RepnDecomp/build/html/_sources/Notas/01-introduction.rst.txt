@@ -17,7 +17,7 @@ Para instalar este paquete, debemos consultar las instrucciones de instalación 
     
     A lo largo de esta documentación, se utiliza terminología matemática, por ejemplo: :underline:`representación`. Está claro lo que se quiere decir matemáticamente, pero no está del todo claro lo que se quiere decir en términos de tipos de **GAP**, qué se supone que debes pasar cuando digo "pasar una representación". De vez en cuando ni siquiera mencionaré lo que estamos transmitiendo y supongo que el lector sabe que **rho** o :math:`\rho` se refieren a una representación.
     
-    Una representación que podemos usar es, en **GAP**, un homomorfismo de un grupo finito a un grupo de matrices donde todas las matrices tienen coeficientes en un campo ciclotómico - no sé si es la traducción correcta - (``Cyclotomics`` es la unión de todos esos campos en **GAP**). Puede verificar si algo que desea pasar es adecuado con la función ``IsFiniteGroupLinearRepresentation (4.1.1)``.
+    Una representación que podemos usar es, en **GAP**, un homomorfismo de un grupo finito a un grupo de matrices donde todas las matrices tienen coeficientes en un campo ciclotómico - no sé si es la traducción correcta - (``Cyclotomics`` es la unión de todos esos campos en **GAP**). Puede verificar si algo que desea pasar es adecuado con la función :ref:`IsFiniteGroupLinearRepresentation`.
     
     A continuación, se muestra un ejemplo de una representación **rho** en **GAP**:
 
@@ -45,29 +45,29 @@ El valor predeterminado es utilizar los algoritmos de Serre. Si pasa la opción 
 
 Las principales funciones implementadas en este paquete son:
 
-:underline:`Para descomponer representaciones en sumandos directos canónicos e irreducibles:` (ver si stá bien la traducción)
+:underline:`Para descomponer representaciones en sumandos directos canónicos e irreducibles:` (ver si esta bien la traducción)
 
-    - ``CanonicalDecomposition (5.3.1)``
-    - ``IrreducibleDecomposition (5.3.2)``
-    - ``IrreducibleDecompositionCollected (5.3.3)``
+    - :ref:`CanonicalDecomposition`
+    - :ref:`IrreducibleDecomposition`
+    - :ref:`IrreducibleDecompositionCollected`
 
 :underline:`Para representaciones de diagonalización de bloques:`
 
-    - ``BlockDiagonalBasisOfRepresentation (5.1.1)``
-    - ``BlockDiagonalRepresentation (5.1.2)``
+    - :ref:`BlockDiagonalBasisOfRepresentation`
+    - :ref:`BlockDiagonalRepresentation`
 
 :underline:`Para calcular anillos centralizadores:`
     
-    - ``CentralizerBlocksOfRepresentation (6.1.1)``
-    - ``CentralizerOfRepresentation (6.1.2)``
+    - :ref:`CentralizerBlocksOfRepresentation`
+    - :ref:`CentralizerOfRepresentation`
 
 :underline:`Para probar isomorfismo y calcular isomorfismos (operadores entrelazados) entre representaciones:`
 
-    - ``Isomorfismo de representación lineal (2.1.1)``
-    - ``AreRepsIsomorphic (2.2.1)``
-    - ``IsLinearRepresentationIsomorphism (2.2.2)``
+    - :ref:`LinearRepresentationIsomorphism`
+    - :ref:`AreRepsIsomorphic`
+    - :ref:`IsLinearRepresentationIsomorphism`
 
 :underline:`Para probar la unitaridad de representaciones y la unitarización de representaciones:`
 
-    - ``Representación unitaria (3.1.1)``
-    - ``IsUnitaryRepresentation (3.1.2)``
+    - :ref:`UnitaryRepresentation`
+    - :ref:`IsUnitaryRepresentation`

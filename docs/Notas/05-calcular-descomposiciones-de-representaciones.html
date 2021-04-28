@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>5. Calcular descomposiciones de representaciones &mdash; documentación de Notas sobre el paquete RepnDecomp - 0.0.1</title>
+  <title>5. Calcular descomposiciones de representaciones &mdash; documentación de Notas sobre la documentación del paquete RepnDecomp - 0.0.1</title>
   
 
   
@@ -55,7 +55,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> Notas sobre el paquete RepnDecomp
+            <a href="../index.html" class="icon icon-home"> Notas sobre la documentación del paquete RepnDecomp
           
 
           
@@ -134,7 +134,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Notas sobre el paquete RepnDecomp</a>
+          <a href="../index.html">Notas sobre la documentación del paquete RepnDecomp</a>
         
       </nav>
 
@@ -192,42 +192,41 @@
 <h2><span class="section-number">5.1. </span>Block diagonalizing<a class="headerlink" href="#block-diagonalizing" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Dada una representación <span class="math notranslate nohighlight">\(\rho : G \to GL(V)\)</span>, a menudo es deseable encontrar una base para <span class="math notranslate nohighlight">\(V\)</span> que el bloque diagonalice cada <span class="math notranslate nohighlight">\(\rho(g)\)</span> con los tamaños de bloque tan pequeños como sea posible. Esto acelera las operaciones de álgebra matricial, ya que ahora se pueden realizar en bloques.</p>
 <div class="section" id="blockdiagonalbasisofrepresentation">
-<h3><span class="section-number">5.1.1. </span>BlockDiagonalBasisOfRepresentation<a class="headerlink" href="#blockdiagonalbasisofrepresentation" title="Enlazar permanentemente con este título">¶</a></h3>
+<span id="id1"></span><h3><span class="section-number">5.1.1. </span>BlockDiagonalBasisOfRepresentation<a class="headerlink" href="#blockdiagonalbasisofrepresentation" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>La función <code class="docutils literal notranslate"><span class="pre">BlockDiagonalBasisOfRepresentation(</span> <span class="pre">rho</span> <span class="pre">)</span></code> devuelve una base de <span class="math notranslate nohighlight">\(V\)</span> que diagonaliza en bloque <span class="math notranslate nohighlight">\(\rho\)</span>.</p>
 <p>Sea <span class="math notranslate nohighlight">\(G\)</span> tal que tenga representaciones irreductibles <span class="math notranslate nohighlight">\(\rho_i\)</span>, con dimensión <span class="math notranslate nohighlight">\(d_{i}\)</span> y multiplicidad <span class="math notranslate nohighlight">\(m_{i}\)</span>. La base devuelta por esta operación da cada <span class="math notranslate nohighlight">\(\rho(g)\)</span> como una matriz diagonal de bloques que tiene <span class="math notranslate nohighlight">\(m_{i}\)</span> bloques de tamaño <span class="math notranslate nohighlight">\(d_i \times d_i\)</span> para cada <span class="math notranslate nohighlight">\(i\)</span>.</p>
 </div>
 <div class="section" id="blockdiagonalrepresentation">
-<h3><span class="section-number">5.1.2. </span>BlockDiagonalRepresentation<a class="headerlink" href="#blockdiagonalrepresentation" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>La función <code class="docutils literal notranslate"><span class="pre">BlockDiagonalRepresentation(</span> <span class="pre">rho</span> <span class="pre">)</span></code> devuelve la representación de <span class="math notranslate nohighlight">\(G\)</span> isomorfo a <span class="math notranslate nohighlight">\(\rho\)</span> donde las imágenes <span class="math notranslate nohighlight">\(\rho(g)\)</span> están diagonalizadas en bloque. Esta es solo una operación de conveniencia que usa <code class="docutils literal notranslate"><span class="pre">BlockDiagonalBasisOfRepresentation</span> <span class="pre">(5.1.1)</span></code> para calcular la matriz de cambio de base y la aplica para poner <span class="math notranslate nohighlight">\(\rho\)</span> en la forma de bloque diagonalizado.</p>
+<span id="id2"></span><h3><span class="section-number">5.1.2. </span>BlockDiagonalRepresentation<a class="headerlink" href="#blockdiagonalrepresentation" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>La función <code class="docutils literal notranslate"><span class="pre">BlockDiagonalRepresentation(</span> <span class="pre">rho</span> <span class="pre">)</span></code> devuelve la representación de <span class="math notranslate nohighlight">\(G\)</span> isomorfo a <span class="math notranslate nohighlight">\(\rho\)</span> donde las imágenes <span class="math notranslate nohighlight">\(\rho(g)\)</span> están diagonalizadas en bloque. Esta es solo una operación de conveniencia que usa <a class="reference internal" href="#blockdiagonalbasisofrepresentation">BlockDiagonalBasisOfRepresentation</a> para calcular la matriz de cambio de base y la aplica para poner <span class="math notranslate nohighlight">\(\rho\)</span> en la forma de bloque diagonalizado.</p>
 </div>
 </div>
 <div class="section" id="algoritmos-debidos-a-los-autores">
 <h2><span class="section-number">5.2. </span>Algoritmos debidos a los autores<a class="headerlink" href="#algoritmos-debidos-a-los-autores" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="section" id="repn-computeusingmymethod-para-isgrouphomomorphism">
-<h3><span class="section-number">5.2.1. </span>REPN_ComputeUsingMyMethod (para IsGroupHomomorphism)<a class="headerlink" href="#repn-computeusingmymethod-para-isgrouphomomorphism" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>El atributo <code class="docutils literal notranslate"><span class="pre">REPN_ComputeUsingMyMethod(</span> <span class="pre">rho</span> <span class="pre">)</span></code> devuelve un <code class="docutils literal notranslate"><span class="pre">registro</span></code> o <code class="docutils literal notranslate"><span class="pre">record</span></code> en el mismo formato que <code class="docutils literal notranslate"><span class="pre">REPN_ComputeUsingSerre</span> <span class="pre">(5.3.4)</span></code>.</p>
-<p>Calcula los mismos valores que <code class="docutils literal notranslate"><span class="pre">REPN_ComputeUsingSerre</span> <span class="pre">(5.3.4)</span></code>, tomando las mismas opciones. El trabajo pesado de este método se realiza mediante <code class="docutils literal notranslate"><span class="pre">LinearRepresentationIsomorphism</span> <span class="pre">(2.1.1)</span></code>), donde hay algunas opciones adicionales que se pueden pasar para influir en los algoritmos utilizados.</p>
+<span id="repn-computeusingmymethod"></span><h3><span class="section-number">5.2.1. </span>REPN_ComputeUsingMyMethod (para IsGroupHomomorphism)<a class="headerlink" href="#repn-computeusingmymethod-para-isgrouphomomorphism" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>El atributo <code class="docutils literal notranslate"><span class="pre">REPN_ComputeUsingMyMethod(</span> <span class="pre">rho</span> <span class="pre">)</span></code> devuelve un <code class="docutils literal notranslate"><span class="pre">registro</span></code> o <code class="docutils literal notranslate"><span class="pre">record</span></code> en el mismo formato que <a class="reference internal" href="#repn-computeusingserre">REPN_ComputeUsingSerre</a>.</p>
+<p>Calcula los mismos valores que <a class="reference internal" href="#repn-computeusingserre">REPN_ComputeUsingSerre</a>, tomando las mismas opciones. El trabajo pesado de este método se realiza mediante <a class="reference internal" href="02-isomorfismos-entre-representaciones.html#linearrepresentationisomorphism"><span class="std std-ref">LinearRepresentationIsomorphism</span></a>), donde hay algunas opciones adicionales que se pueden pasar para influir en los algoritmos utilizados.</p>
 </div>
 <div class="section" id="repn-computeusingmymethodcanonical-para-isgrouphomomorphism">
-<h3><span class="section-number">5.2.2. </span>REPN_ComputeUsingMyMethodCanonical (para IsGroupHomomorphism)<a class="headerlink" href="#repn-computeusingmymethodcanonical-para-isgrouphomomorphism" title="Enlazar permanentemente con este título">¶</a></h3>
+<span id="repn-computeusingmymethodcanonical"></span><h3><span class="section-number">5.2.2. </span>REPN_ComputeUsingMyMethodCanonical (para IsGroupHomomorphism)<a class="headerlink" href="#repn-computeusingmymethodcanonical-para-isgrouphomomorphism" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>El atributo <code class="docutils literal notranslate"><span class="pre">REPN_ComputeUsingMyMethodCanonical(</span> <span class="pre">rho</span> <span class="pre">)</span></code>  Devuelve un registro en el mismo formato que <code class="docutils literal notranslate"><span class="pre">REPN_ComputeUsingMyMethod</span> <span class="pre">(5.2.1)</span></code>.</p>
-<p>Realiza el mismo cálculo que <code class="docutils literal notranslate"><span class="pre">REPN_ComputeUsingMyMethod</span> <span class="pre">(5.2.1)</span></code>, pero primero divide la representación en sumandos canónicos usando <code class="docutils literal notranslate"><span class="pre">CanonicalDecomposition</span> <span class="pre">(5.3.1)</span></code>. Esto podría reducir significativamente el tamaño de las matrices con las que necesitamos trabajar, por lo que podría ser mucho más rápido.</p>
-<p>Si se da la opción <code class="docutils literal notranslate"><span class="pre">parallel</span></code>, la descomposición de los sumandos canónicos en <code class="docutils literal notranslate"><span class="pre">irreps</span></code> se realiza en
-paralelo, que podría ser mucho más rápido.</p>
+<p>Realiza el mismo cálculo que <a class="reference internal" href="#repn-computeusingmymethod">REPN_ComputeUsingMyMethod</a>, pero primero divide la representación en sumandos canónicos usando <a class="reference internal" href="#canonicaldecomposition">CanonicalDecomposition</a>. Esto podría reducir significativamente el tamaño de las matrices con las que necesitamos trabajar, por lo que podría ser mucho más rápido.</p>
+<p>Si se da la opción <code class="docutils literal notranslate"><span class="pre">parallel</span></code>, la descomposición de los sumandos canónicos en <code class="docutils literal notranslate"><span class="pre">irreps</span></code> se realiza en paralelo, que podría ser mucho más rápido.</p>
 </div>
 </div>
 <div class="section" id="algoritmos-debidos-a-serre">
-<h2><span class="section-number">5.3. </span>Algoritmos debidos a Serre<a class="headerlink" href="#algoritmos-debidos-a-serre" title="Enlazar permanentemente con este título">¶</a></h2>
+<span id="id3"></span><h2><span class="section-number">5.3. </span>Algoritmos debidos a Serre<a class="headerlink" href="#algoritmos-debidos-a-serre" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
 <ul class="simple">
-<li><p>Todo el cálculo en esta sección se realiza en realidad en la función <code class="docutils literal notranslate"><span class="pre">REPN_ComputeUsingSerre</span></code>, las otras funciones son envoltorios a su alrededor.</p></li>
+<li><p>Todo el cálculo en esta sección se realiza en realidad en la función <a class="reference internal" href="#repn-computeusingserre">REPN_ComputeUsingSerre</a>, las otras funciones son envoltorios a su alrededor.</p></li>
 </ul>
 </div>
 <div class="section" id="canonicaldecomposition">
-<h3><span class="section-number">5.3.1. </span>CanonicalDecomposition<a class="headerlink" href="#canonicaldecomposition" title="Enlazar permanentemente con este título">¶</a></h3>
+<span id="id4"></span><h3><span class="section-number">5.3.1. </span>CanonicalDecomposition<a class="headerlink" href="#canonicaldecomposition" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>La función <code class="docutils literal notranslate"><span class="pre">CanonicalDecomposition(</span> <span class="pre">rho</span> <span class="pre">)</span></code> devuelve una lista de espacios vectoriales <span class="math notranslate nohighlight">\(V_{i}\)</span>, cada <span class="math notranslate nohighlight">\(G-\text{invariante}\)</span> y una suma directa de irreducibles isomorfos. Es decir, para cada <span class="math notranslate nohighlight">\(i\)</span>, <span class="math notranslate nohighlight">\(V_{i} \cong \oplus_{j} W_{i}\)</span> (como representaciones) donde <span class="math notranslate nohighlight">\(W_{i}\)</span> es un espacio vectorial <span class="math notranslate nohighlight">\(G-\text{invariante}\)</span> irreductible.</p>
-<p>Calcula la descomposición canónica de <span class="math notranslate nohighlight">\(V\)</span> en <span class="math notranslate nohighlight">\(\oplus_{i}\;V_{i}\)</span> usando las fórmulas para las proyecciones <span class="math notranslate nohighlight">\($V \to V_{i}$\)</span> debido a <em>Serre</em>. Puede pasar la opción <code class="docutils literal notranslate"><span class="pre">irreps</span></code> con una lista de <code class="docutils literal notranslate"><span class="pre">irreps</span></code> de <span class="math notranslate nohighlight">\(G\)</span>, y esto se utilizará en lugar de calcular una lista completa nosotros mismos. Si ya sabe qué <code class="docutils literal notranslate"><span class="pre">irreps</span></code> aparecerán en <span class="math notranslate nohighlight">\(\rho\)</span>, por ejemplo, esto le ahorrará tiempo.</p>
+<p>Calcula la descomposición canónica de <span class="math notranslate nohighlight">\(V\)</span> en <span class="math notranslate nohighlight">\(\oplus_{i}\;V_{i}\)</span> usando las fórmulas para las proyecciones <span class="math notranslate nohighlight">\(V \to V_{i}\)</span> debido a <em>Serre</em>. Puede pasar la opción <code class="docutils literal notranslate"><span class="pre">irreps</span></code> con una lista de <code class="docutils literal notranslate"><span class="pre">irreps</span></code> de <span class="math notranslate nohighlight">\(G\)</span>, y esto se utilizará en lugar de calcular una lista completa nosotros mismos. Si ya sabe qué <code class="docutils literal notranslate"><span class="pre">irreps</span></code> aparecerán en <span class="math notranslate nohighlight">\(\rho\)</span>, por ejemplo, esto le ahorrará tiempo.</p>
 <div class="literal-block-wrapper docutils container" id="ejemplo-canonicaldecomposition">
 <div class="code-block-caption"><span class="caption-text">función CanonicalDecomposition</span><a class="headerlink" href="#ejemplo-canonicaldecomposition" title="Enlace permanente a este código fuente">¶</a></div>
 <div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">LoadPackage</span><span class="p">(</span> <span class="s">&quot;RepnDecomp&quot;</span> <span class="p">)</span><span class="o">;</span>
@@ -270,7 +269,7 @@ paralelo, que podría ser mucho más rápido.</p>
 </div>
 </div>
 <div class="section" id="irreducibledecomposition">
-<h3><span class="section-number">5.3.2. </span>IrreducibleDecomposition<a class="headerlink" href="#irreducibledecomposition" title="Enlazar permanentemente con este título">¶</a></h3>
+<span id="id5"></span><h3><span class="section-number">5.3.2. </span>IrreducibleDecomposition<a class="headerlink" href="#irreducibledecomposition" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>La función <code class="docutils literal notranslate"><span class="pre">IrreducibleDecomposition(</span> <span class="pre">rho</span> <span class="pre">)</span></code> devuelve una lista de espacios vectoriales <span class="math notranslate nohighlight">\(W_{j}\)</span> tales que <span class="math notranslate nohighlight">\(V = \displaystyle\oplus_{j} W_{j}\)</span> y cada <span class="math notranslate nohighlight">\(W_{j}\)</span> es un espacio vectorial <span class="math notranslate nohighlight">\(G-\text{invariante}\)</span> irreducible.</p>
 <p>Calcula la descomposición de <span class="math notranslate nohighlight">\(V\)</span> en subpresentaciones irreducibles.</p>
 <div class="literal-block-wrapper docutils container" id="ejemplo-irreducibledecomposition">
@@ -304,22 +303,22 @@ paralelo, que podría ser mucho más rápido.</p>
 </div>
 </div>
 <div class="section" id="irreducibledecompositioncollected">
-<h3><span class="section-number">5.3.3. </span>IrreducibleDecompositionCollected<a class="headerlink" href="#irreducibledecompositioncollected" title="Enlazar permanentemente con este título">¶</a></h3>
+<span id="id6"></span><h3><span class="section-number">5.3.3. </span>IrreducibleDecompositionCollected<a class="headerlink" href="#irreducibledecompositioncollected" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>La función <code class="docutils literal notranslate"><span class="pre">IrreducibleDecompositionCollected(</span> <span class="pre">rho</span> <span class="pre">)</span></code> devuelve una lista de listas <span class="math notranslate nohighlight">\(V_{i}\)</span> de espacios vectoriales <span class="math notranslate nohighlight">\(V_{ij}\)</span> tales que <span class="math notranslate nohighlight">\(V = \oplus_{i} \oplus_{j} V_{ij}\)</span> y <span class="math notranslate nohighlight">\(V_{ik} \cong V_{il}\)</span> para todo <span class="math notranslate nohighlight">\(i\)</span>, <span class="math notranslate nohighlight">\(k\)</span> y <span class="math notranslate nohighlight">\(l\)</span> (como representaciones).</p>
 <p>Calcula la descomposición de <span class="math notranslate nohighlight">\(V\)</span> en subrepresentaciones irreducibles, agrupando las subrepresentaciones isomorfas.</p>
 </div>
 <div class="section" id="repn-computeusingserre-para-isgrouphomomorphism">
-<h3><span class="section-number">5.3.4. </span>REPN_ComputeUsingSerre (para IsGroupHomomorphism)<a class="headerlink" href="#repn-computeusingserre-para-isgrouphomomorphism" title="Enlazar permanentemente con este título">¶</a></h3>
+<span id="repn-computeusingserre"></span><h3><span class="section-number">5.3.4. </span>REPN_ComputeUsingSerre (para IsGroupHomomorphism)<a class="headerlink" href="#repn-computeusingserre-para-isgrouphomomorphism" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>El atributo <code class="docutils literal notranslate"><span class="pre">REPN_ComputeUsingSerre(</span> <span class="pre">rho)</span></code> devuelve un <code class="docutils literal notranslate"><span class="pre">registro</span></code> o <code class="docutils literal notranslate"><span class="pre">record</span></code> en el formato que se describe a continuación.</p>
 <p>Esta función hace todo el cálculo y (dado que es un atributo) guarda los resultados. Hacer todos los cálculos al mismo tiempo garantiza la coherencia en lo que respecta a la ordenación irreparable, la ordenación por bloques y la ordenación básica. No hay un ordenamiento canónico de <code class="docutils literal notranslate"><span class="pre">irreps</span></code>, por lo que esto es crucial.</p>
 <p><code class="docutils literal notranslate"><span class="pre">irreps</span></code> es la lista completa de <code class="docutils literal notranslate"><span class="pre">irreps</span></code> involucrados en la descomposición de suma directa de <code class="docutils literal notranslate"><span class="pre">rho</span></code>, esto se puede dar en caso de que el valor predeterminado (ejecutando el <em>algoritmo de Dixon</em>) sea demasiado costoso, o por ejemplo, no desea representaciones sobre <code class="docutils literal notranslate"><span class="pre">Cyclotomics</span></code>.</p>
 <p>El valor de retorno de esta función es un registro con campos:</p>
 <blockquote>
 <div><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">basis</span></code>: La base que bloque diagonaliza <span class="math notranslate nohighlight">\(\rho\)</span>, ver <code class="docutils literal notranslate"><span class="pre">BlockDiagonalBasisOfRepresentation</span> <span class="pre">(5.1.1)</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">diagonal_rep</span></code>: <span class="math notranslate nohighlight">\(\rho\)</span>, bloque diagonalizado con la base anterior. ver <code class="docutils literal notranslate"><span class="pre">BlockDiagonalRepresentation</span> <span class="pre">(5.1.2)</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">decomposition</span></code>: Los subespacios <span class="math notranslate nohighlight">\(G-\text{invariables irreductibles}\)</span>, recopilados según el isomorfismo, ver <code class="docutils literal notranslate"><span class="pre">IrreducibleDecompositionCollected</span>&#160; <span class="pre">(5.1.3)</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">centralizer_basis</span></code>: Una base ortonormal para el anillo centralizador de <span class="math notranslate nohighlight">\(\rho\)</span>, escrito en forma de bloque. Ver <code class="docutils literal notranslate"><span class="pre">CentralizerBlocksOfRepresentation</span> <span class="pre">(6.1.1)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">basis</span></code>: La base que bloque diagonaliza <span class="math notranslate nohighlight">\(\rho\)</span>, ver <a class="reference internal" href="#blockdiagonalbasisofrepresentation">BlockDiagonalBasisOfRepresentation</a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">diagonal_rep</span></code>: <span class="math notranslate nohighlight">\(\rho\)</span>, bloque diagonalizado con la base anterior. ver <a class="reference internal" href="#blockdiagonalrepresentation">BlockDiagonalRepresentation</a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">decomposition</span></code>: Los subespacios <span class="math notranslate nohighlight">\(G-\text{invariables irreductibles}\)</span>, recopilados según el isomorfismo, ver <a class="reference internal" href="#irreducibledecompositioncollected">IrreducibleDecompositionCollected</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">centralizer_basis</span></code>: Una base ortonormal para el anillo centralizador de <span class="math notranslate nohighlight">\(\rho\)</span>, escrito en forma de bloque. Ver <a class="reference internal" href="06-anillos-centralizadores-conmutadores.html#centralizerblocksofrepresentation"><span class="std std-ref">CentralizerBlocksOfRepresentation</span></a></p></li>
 </ul>
 </div></blockquote>
 <p>Pase la opción paralelo para que los cálculos por irreparación se realicen en paralelo.</p>

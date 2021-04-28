@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>6. Anillos centralizadores (conmutadores) &mdash; documentación de Notas sobre el paquete RepnDecomp - 0.0.1</title>
+  <title>6. Anillos centralizadores (conmutadores) &mdash; documentación de Notas sobre la documentación del paquete RepnDecomp - 0.0.1</title>
   
 
   
@@ -55,7 +55,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> Notas sobre el paquete RepnDecomp
+            <a href="../index.html" class="icon icon-home"> Notas sobre la documentación del paquete RepnDecomp
           
 
           
@@ -99,7 +99,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#centralizerofrepresentation">6.1.2. CentralizerOfRepresentation</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#usando-el-centralizador-para-calculos">6.2. Usando el centralizador para cálculos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#usando-el-centralizador-para-diversos-calculos">6.2. Usando el centralizador para diversos cálculos</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#classsumcentralizer">6.2.1. ClassSumCentralizer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#classsumcentralizernc">6.2.2. ClassSumCentralizerNC</a></li>
 </ul>
@@ -127,7 +127,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Notas sobre el paquete RepnDecomp</a>
+          <a href="../index.html">Notas sobre la documentación del paquete RepnDecomp</a>
         
       </nav>
 
@@ -182,35 +182,35 @@
   <div class="section" id="anillos-centralizadores-conmutadores">
 <h1><span class="section-number">6. </span>Anillos centralizadores (conmutadores)<a class="headerlink" href="#anillos-centralizadores-conmutadores" title="Enlazar permanentemente con este título">¶</a></h1>
 <div class="section" id="encontrar-una-base-para-el-centralizador">
-<h2><span class="section-number">6.1. </span>Encontrar una base para el centralizador<a class="headerlink" href="#encontrar-una-base-para-el-centralizador" title="Enlazar permanentemente con este título">¶</a></h2>
+<span id="id1"></span><h2><span class="section-number">6.1. </span>Encontrar una base para el centralizador<a class="headerlink" href="#encontrar-una-base-para-el-centralizador" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="section" id="centralizerblocksofrepresentation">
-<h3><span class="section-number">6.1.1. </span>CentralizerBlocksOfRepresentation<a class="headerlink" href="#centralizerblocksofrepresentation" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>La función <code class="docutils literal notranslate"><span class="pre">CentralizerBlocksOfRepresentation(</span> <span class="pre">rho</span> <span class="pre">)</span></code> devuelve una lista de generadores de espacio vectorial para el anillo centralizador de <span class="math notranslate nohighlight">\(\rho(G)\)</span>, escrito en la base dada por <code class="docutils literal notranslate"><span class="pre">BlockDiagonalBasisOfRepresentation</span> <span class="pre">(5.1.1)</span></code>. Las matrices se dan como una lista de bloques.</p>
-<p>Sea G representaciones irreductibles <span class="math notranslate nohighlight">\(\rho_{i}\)</span> con multiplicidades <span class="math notranslate nohighlight">\(m_{i}\)</span>. El centralizador tiene una dimensión <span class="math notranslate nohighlight">\(\displaystyle\sum_{i} m_{i}^{2}\)</span> como un <span class="math notranslate nohighlight">\(\mathbb{C}-\text{espacio vectorial}\)</span>. Esta función proporciona el número mínimo de generadores necesarios.</p>
+<span id="id2"></span><h3><span class="section-number">6.1.1. </span>CentralizerBlocksOfRepresentation<a class="headerlink" href="#centralizerblocksofrepresentation" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>La función <code class="docutils literal notranslate"><span class="pre">CentralizerBlocksOfRepresentation(</span> <span class="pre">rho</span> <span class="pre">)</span></code> devuelve una lista de generadores de espacio vectorial para el anillo centralizador de <span class="math notranslate nohighlight">\(\rho(G)\)</span>, escrito en la base dada por <a class="reference internal" href="05-calcular-descomposiciones-de-representaciones.html#blockdiagonalbasisofrepresentation"><span class="std std-ref">BlockDiagonalBasisOfRepresentation</span></a>. Las matrices se dan como una lista de bloques.</p>
+<p>Sea <span class="math notranslate nohighlight">\(G\)</span> representaciones irreductibles <span class="math notranslate nohighlight">\(\rho_{i}\)</span> con multiplicidades <span class="math notranslate nohighlight">\(m_{i}\)</span>. El centralizador tiene una dimensión <span class="math notranslate nohighlight">\(\displaystyle\sum_{i} m_{i}^{2}\)</span> como un <span class="math notranslate nohighlight">\(\mathbb{C}-\text{espacio vectorial}\)</span>. Esta función proporciona el número mínimo de generadores necesarios.</p>
 </div>
 <div class="section" id="centralizerofrepresentation">
-<h3><span class="section-number">6.1.2. </span>CentralizerOfRepresentation<a class="headerlink" href="#centralizerofrepresentation" title="Enlazar permanentemente con este título">¶</a></h3>
+<span id="id3"></span><h3><span class="section-number">6.1.2. </span>CentralizerOfRepresentation<a class="headerlink" href="#centralizerofrepresentation" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>La función <code class="docutils literal notranslate"><span class="pre">CentralizerOfRepresentation(</span> <span class="pre">arg</span> <span class="pre">)</span></code> devuelve una lista de generadores de espacio vectorial para el anillo centralizador de <span class="math notranslate nohighlight">\(\rho(G)\)</span>.</p>
-<p>Esto da el mismo resultado que <code class="docutils literal notranslate"><span class="pre">CentralizerBlocksOfRepresentation</span> <span class="pre">(6.1.1)</span></code>, pero con las matrices dadas en su totalidad: no como listas de bloques, sino como matrices completas.</p>
+<p>Esto da el mismo resultado que <a class="reference internal" href="#centralizerblocksofrepresentation">CentralizerBlocksOfRepresentation</a>, pero con las matrices dadas en su totalidad: no como listas de bloques, sino como matrices completas.</p>
 </div>
 </div>
-<div class="section" id="usando-el-centralizador-para-calculos">
-<h2><span class="section-number">6.2. </span>Usando el centralizador para cálculos<a class="headerlink" href="#usando-el-centralizador-para-calculos" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="usando-el-centralizador-para-diversos-calculos">
+<span id="id4"></span><h2><span class="section-number">6.2. </span>Usando el centralizador para diversos cálculos<a class="headerlink" href="#usando-el-centralizador-para-diversos-calculos" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="section" id="classsumcentralizer">
-<h3><span class="section-number">6.2.1. </span>ClassSumCentralizer<a class="headerlink" href="#classsumcentralizer" title="Enlazar permanentemente con este título">¶</a></h3>
+<span id="id5"></span><h3><span class="section-number">6.2.1. </span>ClassSumCentralizer<a class="headerlink" href="#classsumcentralizer" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>La función <code class="docutils literal notranslate"><span class="pre">ClassSumCentralizer(</span> <span class="pre">rho,</span> <span class="pre">class,</span> <span class="pre">cent_basis)</span></code> devuelve <span class="math notranslate nohighlight">\(\displaystyle\sum_{s \in t^{G}} \rho(s)\)</span>, donde <span class="math notranslate nohighlight">\(t\)</span> es un representante de la clase de conjugación clase de <span class="math notranslate nohighlight">\(G\)</span>.</p>
 <p>Requerimos que <code class="docutils literal notranslate"><span class="pre">rho</span></code> sea unitario. Utiliza la base ortonormal dada (con respecto al producto interno <span class="math notranslate nohighlight">\(\langle A, B \rangle = \text{Trace}(AB^\ast)\)</span> para el anillo centralizador de <code class="docutils literal notranslate"><span class="pre">rho</span></code> para calcular la suma de la clase de conjugación <code class="docutils literal notranslate"><span class="pre">class</span></code> rápidamente, es decir, sin sumar la clase.</p>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
 <ul class="simple">
-<li><p>Se comprueban la ortonormalidad de <code class="docutils literal notranslate"><span class="pre">cent_basis</span></code> y la unitaridad de <code class="docutils literal notranslate"><span class="pre">rho</span></code>. Consulte <code class="docutils literal notranslate"><span class="pre">ClassSumCentralizerNC</span> <span class="pre">(6.2.2)</span></code> para obtener una versión de esta función sin comprobaciones. Las verificaciones no son muy costosas, por lo que se recomienda utilizar la función con chequeos.</p></li>
+<li><p>Se comprueban la ortonormalidad de <code class="docutils literal notranslate"><span class="pre">cent_basis</span></code> y la unitaridad de <code class="docutils literal notranslate"><span class="pre">rho</span></code>. Consulte <a class="reference internal" href="#classsumcentralizernc">ClassSumCentralizerNC</a> para obtener una versión de esta función sin comprobaciones. Las verificaciones no son muy costosas, por lo que se recomienda utilizar la función con chequeos.</p></li>
 </ul>
 </div>
 </div>
 <div class="section" id="classsumcentralizernc">
-<h3><span class="section-number">6.2.2. </span>ClassSumCentralizerNC<a class="headerlink" href="#classsumcentralizernc" title="Enlazar permanentemente con este título">¶</a></h3>
+<span id="id6"></span><h3><span class="section-number">6.2.2. </span>ClassSumCentralizerNC<a class="headerlink" href="#classsumcentralizernc" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>La función <code class="docutils literal notranslate"><span class="pre">ClassSumCentralizerNC(rho,</span> <span class="pre">class,</span> <span class="pre">cent_basis)</span></code></p>
-<p>Lo mismo que <code class="docutils literal notranslate"><span class="pre">ClassSumCentralizer</span> <span class="pre">(6.2.1)</span></code>, pero no verifica la base de la ortonormalidad o la representación de la unitaridad. Ya sabemos que <code class="docutils literal notranslate"><span class="pre">NC</span></code> significa «No check».</p>
+<p>Lo mismo que <a class="reference internal" href="#classsumcentralizer">ClassSumCentralizer</a>, pero no verifica la base de la ortonormalidad o la representación de la unitaridad. Ya sabemos que <code class="docutils literal notranslate"><span class="pre">NC</span></code> significa «No check».</p>
 </div>
 </div>
 </div>
