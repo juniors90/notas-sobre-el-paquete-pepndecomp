@@ -109,7 +109,7 @@ AreRepsIsomorphic
 
 La función ``AreRepsIsomorphic( rho, tau)`` devuelve ``true`` si ``rho`` y ``tau`` son isomorfos como representaciones, ``false`` en caso contrario.
 
-Dado que las representaciones de grupos finitos sobre :math:`\mathbb{C}` están determinadas por sus caracteres, es fácil comprobar si dos representaciones son isomorfas comprobando si tienen el mismo carácter. Intentamos utilizar personajes siempre que sea posible.
+Dado que las representaciones de grupos finitos sobre :math:`\mathbb{C}` están determinadas por sus caracteres, es fácil comprobar si dos representaciones son isomorfas comprobando si tienen el mismo carácter. Intentamos utilizar caracteres siempre que sea posible.
 
 .. code-block:: gap
     :caption: función AreRepsIsomorphic
@@ -141,7 +141,7 @@ IsLinearRepresentationIsomorphism
 
 La función ``IsLinearRepresentationIsomorphism( A, rho, tau)`` devuelve ``true`` si ``rho`` y ``tau`` son :underline:`isomorfos como representaciones con el isomorfismo dado por el mapa lineal` :math:`A`.
 
-Esta función prueba si, para todo :math:`g \in G`, :math:`A \rho(g) = \tau(g) A`. Es decir, se devuelve verdadero si y solo sí A es el operador entrelazado que lleva :math:`\rho` a :math:`\tau`. Veamos,
+Esta función prueba si, para todo :math:`g \in G`, :math:`A \rho(g) = \tau(g) A`. Es decir, se devuelve verdadero si y solo sí :math:`A` es el operador entrelazado que lleva :math:`\rho` a :math:`\tau`. Veamos,
 
 .. code-block:: gap
     :caption: función IsLinearRepresentationIsomorphism

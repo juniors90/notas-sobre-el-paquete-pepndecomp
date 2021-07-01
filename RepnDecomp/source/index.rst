@@ -23,5 +23,6 @@ Notas sobre el paquete RepnDecomp
    Notas/ejemplos-isomorfismos
    Notas/ejemplo-de-representaciones-unitarias
    Notas/ejemplo-de-descomposiciones-de-representaciones
+   Notas/ejemplo-propio
 
 

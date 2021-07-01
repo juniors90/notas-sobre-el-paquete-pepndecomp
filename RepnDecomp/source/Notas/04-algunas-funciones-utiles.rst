@@ -68,12 +68,12 @@ Solo es posible garantizar una representación económica para tensores puros, e
 
 .. _IsTensorProductOfMatricesObj:
 
-IsTensorProductOfMatricesObj (for IsMultiplicativeElementWithInverse)
+IsTensorProductOfMatricesObj (para IsMultiplicativeElementWithInverse)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 El filtro ``IsTensorProductOfMatricesObj( arg )`` devuelve ``true`` o ``false``. La posición i en esta representación almacena la matriz :math:`A_{i}` en el producto tensorial :math:`A_{1} \otimes A_{2}`.
 
-IsTensorProductPairRep (for IsPositionalObjectRep)
+IsTensorProductPairRep (para IsPositionalObjectRep)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 El filtro ``IsTensorProductPairRep( arg )`` devuelve ``true`` o ``false``.
@@ -108,13 +108,13 @@ Matrices y homomorfismos
 ComposeHomFunction
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-La función ``ComposeHomFunction( hom, func)`` devuelve un homomorfism :math:`g` given by :math:`g(x) = func(hom(x))`.
+La función ``ComposeHomFunction( hom, func)`` devuelve un homomorfismo :math:`g` dado por :math:`g(x) = func(hom(x))`.
 
 Esto es principalmente por conveniencia, ya que maneja todos los problemas de contabilidad GAP con respecto al rango, ``ByImages`` vs ``ByFunction``, etc.
 
 
 
-Funciones teóricas de representación
+Funciones de Teoría de representaciones
 -----------------------------------------------------------
 
 .. _TensorProductRepLists:

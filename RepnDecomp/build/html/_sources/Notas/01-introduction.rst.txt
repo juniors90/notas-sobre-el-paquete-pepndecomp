@@ -21,7 +21,7 @@ Para instalar este paquete, debemos consultar las instrucciones de instalación 
     
     A continuación, se muestra un ejemplo de una representación **rho** en **GAP**:
 
-    .. code-block::
+    .. code-block:: gap
 
         gap> G := SymmetricGroup(3);
         Sym( [ 1 .. 3 ] )

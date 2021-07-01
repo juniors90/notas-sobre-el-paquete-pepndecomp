@@ -102,8 +102,8 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#representacion-espacial-eficiente-de-tensores-de-matrices">4.3. Representación espacial eficiente de tensores de matrices</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#istensorproductofmatricesobj-for-ismultiplicativeelementwithinverse">4.3.1. IsTensorProductOfMatricesObj (for IsMultiplicativeElementWithInverse)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#istensorproductpairrep-for-ispositionalobjectrep">4.3.2. IsTensorProductPairRep (for IsPositionalObjectRep)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#istensorproductofmatricesobj-para-ismultiplicativeelementwithinverse">4.3.1. IsTensorProductOfMatricesObj (para IsMultiplicativeElementWithInverse)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#istensorproductpairrep-para-ispositionalobjectrep">4.3.2. IsTensorProductPairRep (para IsPositionalObjectRep)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#istensorproductkroneckerrep-for-ispositionalobjectrep">4.3.3. IsTensorProductKroneckerRep (for IsPositionalObjectRep)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tensorproductofmatrices">4.3.4. TensorProductOfMatrices</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#characteroftensorproductofrepresentations">4.3.5. CharacterOfTensorProductOfRepresentations</a></li>
@@ -113,7 +113,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#composehomfunction">4.4.1. ComposeHomFunction</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#funciones-teoricas-de-representacion">4.5. Funciones teóricas de representación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#funciones-de-teoria-de-representaciones">4.5. Funciones de Teoría de representaciones</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#tensorproductreplists">4.5.1. TensorProductRepLists</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#directsumofrepresentations">4.5.2. DirectSumOfRepresentations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#degreeofrepresentation">4.5.3. DegreeOfRepresentation</a></li>
@@ -131,6 +131,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ejemplos-isomorfismos.html">Ejemplos de Isomorfismos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ejemplo-de-representaciones-unitarias.html">Ejemplos de Representaciones Unitarias</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ejemplo-de-descomposiciones-de-representaciones.html">Ejemplos de Descomposiciones de representaciones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ejemplo-propio.html">Ejemplos de Isomorfismos</a></li>
 </ul>
 
             
@@ -234,12 +235,12 @@
 <p>Supongamos que tenemos representaciones de <span class="math notranslate nohighlight">\(G\)</span>, <span class="math notranslate nohighlight">\(\rho\)</span> y <span class="math notranslate nohighlight">\(\tau\)</span>, con grados <span class="math notranslate nohighlight">\(n\)</span> y <span class="math notranslate nohighlight">\(m\)</span>. Si quisiéramos construir la representación del producto tensorial de <span class="math notranslate nohighlight">\(G\)</span>, <span class="math notranslate nohighlight">\(\rho \otimes \tau\)</span>, la forma habitual de hacerlo sería tomar el <em>producto de Kronecker</em> de las matrices. Esto significa que ahora tenemos que almacenar matrices <span class="math notranslate nohighlight">\(nm \times nm\)</span> muy grandes para cada generador de <span class="math notranslate nohighlight">\(G\)</span>.</p>
 <p>Esto se puede evitar almacenando el tensor de matrices como pares, esencialmente almacenando <span class="math notranslate nohighlight">\(A \otimes B\)</span> como un par <span class="math notranslate nohighlight">\((A, B)\)</span> e implementando operaciones de grupo en encima de éstos, junto con algunas funciones teóricas de representación.</p>
 <p>Solo es posible garantizar una representación económica para tensores puros, es decir, matrices de la forma <span class="math notranslate nohighlight">\(A \otimes B\)</span>. Estas están cerradas bajo operaciones de grupo, por lo que es natural definir una estructura de grupo.</p>
-<div class="section" id="istensorproductofmatricesobj-for-ismultiplicativeelementwithinverse">
-<span id="istensorproductofmatricesobj"></span><h3><span class="section-number">4.3.1. </span>IsTensorProductOfMatricesObj (for IsMultiplicativeElementWithInverse)<a class="headerlink" href="#istensorproductofmatricesobj-for-ismultiplicativeelementwithinverse" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="section" id="istensorproductofmatricesobj-para-ismultiplicativeelementwithinverse">
+<span id="istensorproductofmatricesobj"></span><h3><span class="section-number">4.3.1. </span>IsTensorProductOfMatricesObj (para IsMultiplicativeElementWithInverse)<a class="headerlink" href="#istensorproductofmatricesobj-para-ismultiplicativeelementwithinverse" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>El filtro <code class="docutils literal notranslate"><span class="pre">IsTensorProductOfMatricesObj(</span> <span class="pre">arg</span> <span class="pre">)</span></code> devuelve <code class="docutils literal notranslate"><span class="pre">true</span></code> o <code class="docutils literal notranslate"><span class="pre">false</span></code>. La posición i en esta representación almacena la matriz <span class="math notranslate nohighlight">\(A_{i}\)</span> en el producto tensorial <span class="math notranslate nohighlight">\(A_{1} \otimes A_{2}\)</span>.</p>
 </div>
-<div class="section" id="istensorproductpairrep-for-ispositionalobjectrep">
-<h3><span class="section-number">4.3.2. </span>IsTensorProductPairRep (for IsPositionalObjectRep)<a class="headerlink" href="#istensorproductpairrep-for-ispositionalobjectrep" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="section" id="istensorproductpairrep-para-ispositionalobjectrep">
+<h3><span class="section-number">4.3.2. </span>IsTensorProductPairRep (para IsPositionalObjectRep)<a class="headerlink" href="#istensorproductpairrep-para-ispositionalobjectrep" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>El filtro <code class="docutils literal notranslate"><span class="pre">IsTensorProductPairRep(</span> <span class="pre">arg</span> <span class="pre">)</span></code> devuelve <code class="docutils literal notranslate"><span class="pre">true</span></code> o <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
 <p>La posición <span class="math notranslate nohighlight">\(1\)</span> almacena el <em>producto de Kronecker</em> completo de las matrices, esto es muy ineficiente en cuanto al espacio y se supone que debe usarse como último recurso.</p>
 </div>
@@ -260,12 +261,12 @@
 <h2><span class="section-number">4.4. </span>Matrices y homomorfismos<a class="headerlink" href="#matrices-y-homomorfismos" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="section" id="composehomfunction">
 <span id="id6"></span><h3><span class="section-number">4.4.1. </span>ComposeHomFunction<a class="headerlink" href="#composehomfunction" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>La función <code class="docutils literal notranslate"><span class="pre">ComposeHomFunction(</span> <span class="pre">hom,</span> <span class="pre">func)</span></code> devuelve un homomorfism <span class="math notranslate nohighlight">\(g\)</span> given by <span class="math notranslate nohighlight">\(g(x) = func(hom(x))\)</span>.</p>
+<p>La función <code class="docutils literal notranslate"><span class="pre">ComposeHomFunction(</span> <span class="pre">hom,</span> <span class="pre">func)</span></code> devuelve un homomorfismo <span class="math notranslate nohighlight">\(g\)</span> dado por <span class="math notranslate nohighlight">\(g(x) = func(hom(x))\)</span>.</p>
 <p>Esto es principalmente por conveniencia, ya que maneja todos los problemas de contabilidad GAP con respecto al rango, <code class="docutils literal notranslate"><span class="pre">ByImages</span></code> vs <code class="docutils literal notranslate"><span class="pre">ByFunction</span></code>, etc.</p>
 </div>
 </div>
-<div class="section" id="funciones-teoricas-de-representacion">
-<h2><span class="section-number">4.5. </span>Funciones teóricas de representación<a class="headerlink" href="#funciones-teoricas-de-representacion" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="funciones-de-teoria-de-representaciones">
+<h2><span class="section-number">4.5. </span>Funciones de Teoría de representaciones<a class="headerlink" href="#funciones-de-teoria-de-representaciones" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="section" id="tensorproductreplists">
 <span id="id7"></span><h3><span class="section-number">4.5.1. </span>TensorProductRepLists<a class="headerlink" href="#tensorproductreplists" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>La función <code class="docutils literal notranslate"><span class="pre">TensorProductRepLists(</span> <span class="pre">list1,</span> <span class="pre">list2</span> <span class="pre">)</span></code> devuelve todos los productos tensoriales posibles dados por <span class="math notranslate nohighlight">\(\rho \otimes \tau\)</span> donde <span class="math notranslate nohighlight">\(\rho : G \to \mbox{GL}(V)\)</span> se toma de <code class="docutils literal notranslate"><span class="pre">list1</span></code> y <span class="math notranslate nohighlight">\(\tau : H \to \mbox{GL}(W)\)</span> se toma de <code class="docutils literal notranslate"><span class="pre">list2</span></code>. El resultado es entonces una lista de representaciones de <span class="math notranslate nohighlight">\(G \times H\)</span>.</p>
